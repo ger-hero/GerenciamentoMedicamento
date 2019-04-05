@@ -66,7 +66,12 @@ public class Menu extends JFrame{
 	public void organizaLabels() {
 		lbNomePaciente.setBounds(20, 20, 100, 15);
 		tfPaciente.setBounds(20, 40, 150, 25);
+		
 		lbIdadePaciente.setBounds(20, 70, 100, 25);
 		tfIdadePaciente.setBounds(20, 90, 50, 25);
+		
+		lbRgPaciente.setBounds(20, 120, 150, 25);
+		tfRgPaciente.setBounds(20, 140, 150, 25);
+		
 	}
 }

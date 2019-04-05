@@ -9,7 +9,8 @@ public class Main {
 		// TODO Auto-generated method stub
 		//Exemplo menu = new Exemplo ();
 		//menu.setVisible(true);
-		
+		SplashScreen splash = new SplashScreen(10000);
+        splash.showAndExit();
 		Menu menu = new Menu ();
 		menu.setVisible(true);
 	}
