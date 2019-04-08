@@ -11,8 +11,8 @@ public class Main {
 		//menu.setVisible(true);
 		SplashScreen splash = new SplashScreen(10000);
         splash.showAndExit();
-		Menu menu = new Menu ();
-		menu.setVisible(true);
+        MainMenu aaa = new MainMenu();
+        aaa.setVisible(true);
 	}
 
 }

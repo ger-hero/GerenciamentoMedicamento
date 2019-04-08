@@ -17,7 +17,7 @@ public class Menu extends JFrame{
 	JTextField tfTelefonePaciente;
 	
 	JLabel lbAgressivoPaciente;		// agressivo 
-	JComboBox cbAgressivo;
+	JComboBox<String> cbAgressivo;
 	
 	public Menu() {
 		setTitle("Cadastro de Pacientes");
@@ -52,7 +52,7 @@ public class Menu extends JFrame{
         getContentPane().add(tfTelefonePaciente);
         
         getContentPane().add(lbAgressivoPaciente);
-        getContentPane().add(tfTelefonePaciente);
+        getContentPane().add(cbAgressivo);
         
 	}
 	public void inicializaTextFields() {
@@ -60,6 +60,7 @@ public class Menu extends JFrame{
 		tfIdadePaciente = new JTextField("");
 		tfRgPaciente = new JTextField("");
 		tfTelefonePaciente = new JTextField("");
+		cbAgressivo = new JComboBox<String>(new String[] {"Sim", "Não"});
 
 	}
 	
@@ -67,11 +68,15 @@ public class Menu extends JFrame{
 		lbNomePaciente.setBounds(20, 20, 100, 15);
 		tfPaciente.setBounds(20, 40, 150, 25);
 		
-		lbIdadePaciente.setBounds(20, 70, 100, 25);
-		tfIdadePaciente.setBounds(20, 90, 50, 25);
+		lbIdadePaciente.setBounds(180, 20, 100, 25);
+		tfIdadePaciente.setBounds(180, 40, 50, 25);
 		
-		lbRgPaciente.setBounds(20, 120, 150, 25);
-		tfRgPaciente.setBounds(20, 140, 150, 25);
+		lbRgPaciente.setBounds(240, 20, 150, 25);
+		tfRgPaciente.setBounds(240, 40, 150, 25);
 		
+		lbTelefonePaciente.setBounds(20, 70, 100, 25);
+		tfTelefonePaciente.setBounds(20, 90, 100, 25);
+		
+		lbAgressivoPaciente.setBounds(130, 70, 75, 25);
 	}
 }
