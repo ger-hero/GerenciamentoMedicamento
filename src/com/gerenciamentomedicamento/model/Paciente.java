@@ -1,3 +1,4 @@
+package com.gerenciamentomedicamento.model;
 public class Paciente {
 	//Atributos
 	private String nome;
