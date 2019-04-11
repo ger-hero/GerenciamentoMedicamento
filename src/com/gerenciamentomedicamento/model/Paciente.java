@@ -1,44 +1,62 @@
 package com.gerenciamentomedicamento.model;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Paciente {
-	//Atributos
+	// Atributos
+	private int id;
 	private String nome;
-	private int idade;
-	private String RG;
-	private int telefone;
-	private boolean agressivo;
-	
-	//Construtores
-	public Paciente(String nome, int idade, String RG, int telefone, boolean agressivo) {
+	private String ala;
+
+	public Paciente(int id, String nome, String ala) {
+		super();
+		this.id = id;
 		this.nome = nome;
-		this.idade = idade;
-		this.RG = RG;
-		this.telefone = telefone;
-		this.agressivo = agressivo;
+		this.ala = ala;
 	}
-	
-	//Metodos
+
+	public Paciente() {
+
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getRG() {
-		return RG;
+
+	public String getAla() {
+		return ala;
 	}
-	public void setRG(String rG) {
-		RG = rG;
+
+	public void setAla(String ala) {
+		this.ala = ala;
 	}
-	public int getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(int telefone) {
-		this.telefone = telefone;
-	}
-	public boolean getAgressivo() {
-		return agressivo;
-	}
-	public void setAgressividade(boolean agressivo) {
-		this.agressivo = agressivo;
+	
+	/*
+	 * Método para retornar do banco todos os pacientes cadastrados
+	 */
+	public ResultSet retornaPacientes() {
+		String sql = "SELECT * FROM paciente";
+		Conexao con = new Conexao();
+		ResultSet consulta = null;
+		try {
+			consulta = con.executeQuery(sql);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return consulta;
 	}
 }
