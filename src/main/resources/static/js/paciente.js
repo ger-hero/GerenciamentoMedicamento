@@ -8,12 +8,16 @@ $(document).ready(function () {
 
         //stop submit the form, we will post it manually.
         event.preventDefault();
-
+        
         fire_ajax_submit();
 
     });
 
 });
+
+function limparListaPacientes(){
+	
+}
 
 function fire_ajax_submit() {
 
