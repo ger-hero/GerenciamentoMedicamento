@@ -1,0 +1,64 @@
+#importacao das packs para execucao do programa
+import psycopg2 as db
+import pandas as pd
+
+#abrindo o arquivo excel com sua respectiva sheet
+paciente_doenca = pd.read_excel('bd.xlsx',sheet_name='pacientes')
+
+# capturando dados do excel por coluna
+id = paciente_doenca[paciente_doenca.columns[0]].tolist()
+doenca1 = paciente_doenca[paciente_doenca.columns[3]].tolist()
+doenca2 = paciente_doenca[paciente_doenca.columns[5]].tolist()
+doenca3 = paciente_doenca[paciente_doenca.columns[7]].tolist()
+
+#variáveis auxiliares para facilitar a concatenacao da lista
+inicio = 'insert into paciente_doenca (id, idpaciente, iddoenca) values ('
+fim = ');'
+asp = '\''
+v = ','
+toInt = '::INTEGER'
+
+#declaracao da lista para o for
+lista = []
+id_tabela = 1;
+
+for i in range(len(paciente_doenca.index)):
+    if(str(doenca1[i]) != "nan" and doenca1[i] != 0):
+        lista.append(inicio +
+                     str(id_tabela) +
+                     v +
+                     str(id[i]) +
+                     v +
+                     str(doenca1[i]) + toInt +
+                     fim)
+        id_tabela = id_tabela + 1
+
+    if(str(doenca2[i]) != "nan" and doenca2[i] != 0):
+        lista.append(inicio +
+                     str(id_tabela) +
+                     v +
+                     str(id[i]) +
+                     v +
+                     str(doenca2[i]) + toInt +
+                     fim)
+        id_tabela = id_tabela + 1
+
+    if(str(doenca3[i]) != "nan" and doenca3[i] != 0):
+        lista.append(inicio +
+                     str(id_tabela) +
+                     v +
+                     str(id[i]) +
+                     v +
+                     str(doenca3[i]) + toInt +
+                     fim)
+        id_tabela = id_tabela + 1
+
+con = db.connect(host='9.13.182.49', database='gerenciamentoMedicamento',
+user='postgres', password='1234')
+cur = con.cursor()
+
+for comando in lista:
+    print(comando)
+    cur.execute(comando)
+    con.commit()
+con.close()
