@@ -17,3 +17,8 @@
 	text-align: center;
 	color: gray;
 }
+
+.grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+}

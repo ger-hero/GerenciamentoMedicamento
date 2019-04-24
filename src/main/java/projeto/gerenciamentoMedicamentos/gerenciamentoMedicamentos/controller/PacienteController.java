@@ -17,9 +17,4 @@ public class PacienteController {
 	public List<Paciente> buscarPaciente() {
 		return new PacienteRepository().getListPaciente();
 	}
-
-	@RequestMapping("/getMedicamento")
-	public List<Medicamento> buscarMedicamentos() {
-		return new MedicamentoRepository().getListMedicamentos();
-	}
 }
