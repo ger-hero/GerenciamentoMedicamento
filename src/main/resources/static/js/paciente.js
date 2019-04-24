@@ -8,7 +8,7 @@ $(document).ready(function () {
 
         //stop submit the form, we will post it manually.
         event.preventDefault();
-        
+        limparListaPacientes();
         fire_ajax_submit();
 
     });
@@ -16,7 +16,7 @@ $(document).ready(function () {
 });
 
 function limparListaPacientes(){
-	
+	$("#pacientesTable tbody tr").remove();
 }
 
 function fire_ajax_submit() {

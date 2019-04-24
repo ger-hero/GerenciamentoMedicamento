@@ -1,21 +1,19 @@
 @charset "ISO-8859-1";
-#tabela-zebrada tbody tr:nth-child(2n+1)
- {
-   background: #ccc; 
- }
- 
- .maxH
- {
- 	max-height: 200px; 
- 	overflow: auto;
- 	
- }
- .H
- {
-   height: 100%;
- }
 
- .buttonDiv
- {
-   text-align: center;
- }
+#tabela-zebrada tbody tr:nth-child(2n+1) {
+	background: #ccc;
+}
+
+.maxH {
+	max-height: 200px;
+	overflow: auto;
+}
+
+.H {
+	height: 100%;
+}
+
+.buttonDiv {
+	text-align: center;
+	color: gray;
+}
