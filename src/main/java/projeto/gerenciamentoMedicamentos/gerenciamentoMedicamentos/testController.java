@@ -10,8 +10,8 @@ public class testController {
 	public String index() {
 		return "html/index";
 	}
-	@RequestMapping("/medicamentos")
-	public String medicamentos() {
-		return "html/medicamentos";
+	@RequestMapping("/remedios")
+	public String remedios() {
+		return "html/remedios";
 	}
 }

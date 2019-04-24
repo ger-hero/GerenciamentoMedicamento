@@ -16,7 +16,7 @@ $(document).ready(function () {
 });
 
 function limparListaMedicamentos(){
-	$("#medicamentosTable tbody tr").remove();
+	$("#remediosTable tbody tr").remove();
 }
 
 function fire_ajax_submit() {
@@ -29,7 +29,7 @@ function fire_ajax_submit() {
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "/getMedicamento",
+        url: "/medicamento",
         //data: JSON.stringify(search),
         dataType: 'json',
         cache: false,

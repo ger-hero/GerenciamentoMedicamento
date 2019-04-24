@@ -30,7 +30,7 @@ public class MedicamentoRepository {
 			while(resultSet.next()) {
 				id = Integer.valueOf(resultSet.getString("id"));
 				nome = resultSet.getString("nome");
-				indicacao = resultSet.getString("ala");
+				indicacao = resultSet.getString("indica");
 				manha = resultSet.getBoolean("manha");
 				tarde = resultSet.getBoolean("tarde");
 				noite = resultSet.getBoolean("noite");
