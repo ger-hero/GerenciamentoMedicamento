@@ -9,9 +9,9 @@ public class Conexao {
     private String pass;
     
     public Conexao() {     
-        url="jdbc:postgresql://localhost:5432/gerenciamentoMedicamento";
+        url="jdbc:postgresql://9.13.182.49:5432/gerenciamentoMedicamento";
         usr="postgres";
-        pass="1234";
+        pass="ibm01bdc";
     }
     
     private Connection getConnection(){
