@@ -53,5 +53,4 @@ public class RemedioRepository {
 		consulta = con.executeQuery(sql);
 		return consulta;
 	}
-
 }

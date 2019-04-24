@@ -8,7 +8,7 @@ $(document).ready(function () {
 
         //stop submit the form, we will post it manually.
         event.preventDefault();
-        limparListaremedios();
+        limparListaRemedios();
         fire_ajax_submit();
 
     });
@@ -29,7 +29,7 @@ function fire_ajax_submit() {
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "/remedios",
+        url: "/getRemedios",
         //data: JSON.stringify(search),
         dataType: 'json',
         cache: false,

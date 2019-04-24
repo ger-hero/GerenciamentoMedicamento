@@ -10,15 +10,12 @@ import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Pacient
 
 public class PacienteRepository {
 	
-	public PacienteRepository() 
-	{
+	public PacienteRepository() {
 		
 	}
 	
 	public List<Paciente> getPacientes(){
-		
 		List<Paciente> lp = new ArrayList<Paciente>();
-		
 		return lp;
 	}
 
