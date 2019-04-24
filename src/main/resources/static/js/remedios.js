@@ -8,14 +8,14 @@ $(document).ready(function () {
 
         //stop submit the form, we will post it manually.
         event.preventDefault();
-        limparListaMedicamentos();
+        limparListaremedios();
         fire_ajax_submit();
 
     });
 
 });
 
-function limparListaMedicamentos(){
+function limparListaRemedios(){
 	$("#remediosTable tbody tr").remove();
 }
 
@@ -29,7 +29,7 @@ function fire_ajax_submit() {
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "/medicamento",
+        url: "/remedios",
         //data: JSON.stringify(search),
         dataType: 'json',
         cache: false,
@@ -59,7 +59,7 @@ function fire_ajax_submit() {
 }
 
 function formatData(json){
-	medicamento = $('#medicamentosTable');
+	medicamento = $('#remediosTable');
 	$.each(json, function(idx, objM){
 		medicamento.append('<tr><td>' + objM.id + '</td>' + '<td>' + objM.nome + '</td>' + '<td>' + objM.indicacao + '</td>' + '<td>' + objM.manha  + '</td>' + .objM.tarde + '</td>' + '<td>' + objM.noite + '</td></tr>')
 		//medicamento.append('<tr><td>' + objP.id + '</td>' + '<td>' + objP.nome + '</td>' + '<td>' + objP.ala + '</td></tr>')

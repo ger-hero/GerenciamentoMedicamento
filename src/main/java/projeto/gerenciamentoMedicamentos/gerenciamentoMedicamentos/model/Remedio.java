@@ -1,6 +1,6 @@
 package projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model;
 
-public class Medicamento {
+public class Remedio {
 	private int id;
 	private String nome;
 	private String indicacao;
@@ -8,7 +8,7 @@ public class Medicamento {
 	private boolean tarde;
 	private boolean noite;
 
-	public Medicamento(int id, String nome, String indicacao, boolean manha, boolean tarde, boolean noite) {
+	public Remedio(int id, String nome, String indicacao, boolean manha, boolean tarde, boolean noite) {
 		super();
 		this.id = id;
 		this.nome = nome;

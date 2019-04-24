@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.Conexao;
-import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Medicamento;
+import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Remedio;
 
-public class MedicamentoRepository {
+public class RemedioRepository {
 	
-	public MedicamentoRepository() {
+	public RemedioRepository() {
 		
 	}
 	
-	public List<Medicamento> getListMedicamentos() {
-		List<Medicamento> medicamentos = new ArrayList<Medicamento>();
+	public List<Remedio> getListRemedios() {
+		List<Remedio> medicamentos = new ArrayList<Remedio>();
 		ResultSet resultSet;
 		resultSet = this.retornaRemedios();
 		
@@ -30,12 +30,12 @@ public class MedicamentoRepository {
 			while(resultSet.next()) {
 				id = Integer.valueOf(resultSet.getString("id"));
 				nome = resultSet.getString("nome");
-				indicacao = resultSet.getString("indica");
+				indicacao = resultSet.getString("i");
 				manha = resultSet.getBoolean("manha");
 				tarde = resultSet.getBoolean("tarde");
 				noite = resultSet.getBoolean("noite");
 				
-				medicamentos.add(new Medicamento(id, nome, indicacao, manha, tarde, noite));		
+				medicamentos.add(new Remedio(id, nome, indicacao, manha, tarde, noite));		
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
