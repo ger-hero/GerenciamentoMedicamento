@@ -30,7 +30,7 @@ public class RemedioRepository {
 			while(resultSet.next()) {
 				id = Integer.valueOf(resultSet.getString("id"));
 				nome = resultSet.getString("nome");
-				indicacao = resultSet.getString("i");
+				indicacao = resultSet.getString("indicacao");
 				manha = resultSet.getBoolean("manha");
 				tarde = resultSet.getBoolean("tarde");
 				noite = resultSet.getBoolean("noite");
