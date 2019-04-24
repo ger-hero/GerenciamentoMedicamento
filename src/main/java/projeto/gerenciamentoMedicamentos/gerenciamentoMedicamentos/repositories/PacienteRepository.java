@@ -22,7 +22,7 @@ public class PacienteRepository {
 		return lp;
 	}
 
-	public List<Paciente> buscarPaciente(Paciente paciente) {
+	public List<Paciente> getListPaciente() {
 		List<Paciente> pacientes = new ArrayList<Paciente>();
 		ResultSet resultSet;
 		resultSet = this.retornaPacientes();
