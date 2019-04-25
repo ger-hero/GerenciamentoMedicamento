@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.Conexao;
+import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Paciente;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Remedio;
 
 public class RemedioRepository {
@@ -13,12 +14,15 @@ public class RemedioRepository {
 	public RemedioRepository() {
 		
 	}
+	public List<Remedio> getRemedios(){
+		List<Remedio> lr = new ArrayList<Remedio>();
+		return lr;
+	}
 	
 	public List<Remedio> getListRemedios() {
 		List<Remedio> medicamentos = new ArrayList<Remedio>();
 		ResultSet resultSet;
 		resultSet = this.retornaRemedios();
-		
 		int id;
 		String nome;
 		String indicacao;
@@ -34,16 +38,13 @@ public class RemedioRepository {
 				manha = resultSet.getBoolean("manha");
 				tarde = resultSet.getBoolean("tarde");
 				noite = resultSet.getBoolean("noite");
-				
 				medicamentos.add(new Remedio(id, nome, indicacao, manha, tarde, noite));		
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return medicamentos;
-
 	}
 	
 	public ResultSet retornaRemedios() {

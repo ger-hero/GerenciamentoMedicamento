@@ -3,16 +3,12 @@
  */
 
 $(document).ready(function () {
-
     $("#pesq").click(function (event) {
-
         //stop submit the form, we will post it manually.
         event.preventDefault();
         limparListaPacientes();
         fire_ajax_submit();
-
     });
-
 });
 
 function limparListaPacientes(){
@@ -20,12 +16,9 @@ function limparListaPacientes(){
 }
 
 function fire_ajax_submit() {
-
     var search = {}
     search["username"] = $("#username").val();
-
     $("#btn-search").prop("disabled", true);
-
     $.ajax({
         type: "GET",
         contentType: "application/json",
