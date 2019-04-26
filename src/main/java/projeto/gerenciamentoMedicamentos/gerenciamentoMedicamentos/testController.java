@@ -14,4 +14,8 @@ public class testController {
 	public String remedios() {
 		return "html/remedios";
 	}
+	@RequestMapping("/doencas")
+	public String doencas() {
+		return "html/doencas";
+	}
 }
