@@ -18,4 +18,8 @@ public class testController {
 	public String doencas() {
 		return "html/doencas";
 	}
+	@RequestMapping("/pacientes")
+	public String pacientes() {
+		return "html/pacientes";
+	}
 }
