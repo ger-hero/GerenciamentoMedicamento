@@ -3,12 +3,12 @@
  */
 
 $(document).ready(function () {
-    $("#pesq").click(function (event) {
+//    $("#pesq").click(function (event) {
         //stop submit the form, we will post it manually.
         event.preventDefault();
         limparListaPacientes();
         fire_ajax_submit();
-    });
+//    });
 });
 
 function limparListaPacientes(){
