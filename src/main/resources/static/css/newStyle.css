@@ -1,0 +1,16 @@
+.site--interno {
+  margin-top: 100px; }
+
+.title-teste {
+  color: red; }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  transition: all 200ms linear;
+  width: 100%;
+  z-index: 9999; }
+  .navbar a {
+    color: white; }
+
+/*# sourceMappingURL=newStyle.css.map */
