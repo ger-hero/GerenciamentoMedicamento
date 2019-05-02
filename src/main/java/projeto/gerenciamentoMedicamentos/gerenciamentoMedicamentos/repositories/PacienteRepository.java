@@ -43,7 +43,7 @@ public class PacienteRepository {
 	}
 
 	public ResultSet retornaPacientes() {
-		String sql = "SELECT * FROM paciente";
+		String sql = "SELECT * FROM paciente ORDER BY id";
 		Conexao con = new Conexao();
 		ResultSet consulta = null;
 		consulta = con.executeQuery(sql);
