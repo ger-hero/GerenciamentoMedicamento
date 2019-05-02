@@ -9,44 +9,39 @@ import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.Conexao;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Paciente;
 
 public class PacienteRepository {
-	
+
 	public PacienteRepository() {
-		
-	}
-	
-	public List<Paciente> getPacientes(){
-		List<Paciente> lp = new ArrayList<Paciente>();
-		return lp;
+
 	}
 
 	public List<Paciente> getListPaciente() {
 		List<Paciente> pacientes = new ArrayList<Paciente>();
 		ResultSet resultSet;
 		resultSet = this.retornaPacientes();
+
 		int idPaciente;
 		String nomePaciente;
 		String ala;
-		
+		String foto;
+
 		try {
-			while(resultSet.next()) {
+			while (resultSet.next()) {
 				idPaciente = Integer.valueOf(resultSet.getString("id"));
 				nomePaciente = resultSet.getString("nome");
 				ala = resultSet.getString("ala");
-				pacientes.add(new Paciente(idPaciente,nomePaciente,ala));		
+				foto = resultSet.getString("foto");
+				
+				pacientes.add(new Paciente(idPaciente, nomePaciente, ala, foto));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return pacientes;
 
 	}
-	
-	/**
-	 * Método para buscar os pacientes no banco
-	 * @return retorna do banco todos os paicentes
-	 */
+
 	public ResultSet retornaPacientes() {
 		String sql = "SELECT * FROM paciente";
 		Conexao con = new Conexao();
