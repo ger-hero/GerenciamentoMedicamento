@@ -71,7 +71,7 @@ function formatData(json){
 	let teste = 0;
 	paciente = $('.panel');
 	$.each(json, function(idx, objP){
-		paciente.append('<div class="carta">' + '<div class="imagem">' + '<img src="images/adulto-cabelo-cara-220453.jpg"/>' +'</div>' + '<div class="titulo">' + objP.nome+ '</div>' +'</div>')
+		paciente.append('<div class="carta">' + '<a href="#">' + '<div class="imagem">' + '<img src="images/adulto-cabelo-cara-220453.jpg"/>' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome+ '</div>' +'</div>')
 		teste = teste + 1;
 //		if(teste >= 4){
 //			return false;
