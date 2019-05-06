@@ -43,6 +43,6 @@
       position: absolute;
       transform: translateX(-50%) translateY(50%);
       text-align: center;
-      color: red; }
+      white-space: nowrap; }
 
 /*# sourceMappingURL=newStyle.css.map */
