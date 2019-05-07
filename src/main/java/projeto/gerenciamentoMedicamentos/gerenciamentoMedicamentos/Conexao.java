@@ -8,8 +8,11 @@ public class Conexao {
     private String usr;
     private String pass;
     
-    public Conexao() {     
-        url="jdbc:postgresql://9.13.182.49:5432/gerenciamentoMedicamento";
+    public Conexao() {   
+    	// Rede
+        //url="jdbc:postgresql://9.13.182.49:5432/gerenciamentoMedicamento";
+        // Wifi
+        url="jdbc:postgresql://9.86.181.24:5432/gerenciamentoMedicamento";
         usr="postgres";
         pass="ibm01bdc";
     }
