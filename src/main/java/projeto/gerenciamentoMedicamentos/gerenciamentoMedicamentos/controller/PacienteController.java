@@ -22,7 +22,7 @@ public class PacienteController {
 	 
 	@ResponseBody
 	@RequestMapping(value = "/getUmPaciente/{id}")
-	public Paciente buscarPacient(@PathVariable(value = "id") Integer id) {
+	public Paciente buscarPacient(@PathVariable(value = "id") int id) {
 		return new PacienteRepository().getPaciente(id);
 	}
 }
