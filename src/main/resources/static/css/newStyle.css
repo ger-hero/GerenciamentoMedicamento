@@ -13,4 +13,36 @@
   .navbar a {
     color: white; }
 
+#divDaTabela {
+  margin-top: 200px; }
+
+.site--interno .panel {
+  display: flex;
+  flex-wrap: wrap; }
+  .site--interno .panel .carta {
+    border: 1px solid #d6d6d6;
+    border-radius: 9px;
+    flex: 1 0 16%;
+    flex-grow: 1;
+    max-height: 250px;
+    margin-bottom: 50px;
+    margin-right: 55px;
+    position: relative; }
+    .site--interno .panel .carta .imagem img {
+      border-radius: 9px;
+      max-height: 250px;
+      width: 100%; }
+    .site--interno .panel .carta .titulo {
+      background-color: #212121;
+      bottom: 0;
+      border-radius: 9px;
+      color: white;
+      left: 50%;
+      min-width: 100px;
+      padding: 5px;
+      position: absolute;
+      transform: translateX(-50%) translateY(50%);
+      text-align: center;
+      white-space: nowrap; }
+
 /*# sourceMappingURL=newStyle.css.map */
