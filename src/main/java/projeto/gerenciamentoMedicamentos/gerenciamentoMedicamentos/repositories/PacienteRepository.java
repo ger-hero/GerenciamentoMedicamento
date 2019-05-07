@@ -14,7 +14,7 @@ public class PacienteRepository {
 
 	}
 	
-	public Paciente getPaciente(int id) {
+	public Paciente getPaciente(Integer id) {
 		for(Paciente p : getListPaciente()) {
 			if(p.getId() == id)
 				return p;
