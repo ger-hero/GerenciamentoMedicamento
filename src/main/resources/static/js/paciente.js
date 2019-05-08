@@ -74,7 +74,7 @@ function formatModal(json){
 	//console.log(json.nome);
 	modal = $('.modal-body');
 	modalFooter = $('.modal-footer');
-	modal.html('<strong>Nome: </strong>' + json.nome  + '<br/><br/>' + '<strong>Genêro: </strong>' + json.ala);
+	modal.html('<strong>Nome: </strong>' + json.nome  + '<br/><br/>' + '<strong>Ala: </strong>' + json.ala);
 	modalFooter.html('<a href="/paciente/' +  json.id + '\"' +  'class="btn btn-success"><i class="fas fa-edit"></i></a>');
 	
 }	
