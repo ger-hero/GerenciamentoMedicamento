@@ -1,0 +1,43 @@
+#importacao das packs para execucao do programa
+import psycopg2 as ps
+import pandas as paciente
+
+#abrindo o arquivo excel com sua respectiva sheet
+oPaciente = paciente.read_excel(r'C:\Users\HenriquePugensRamire\Desktop\projetoMedicamento.xlsx',sheet_name='pacientes')
+
+# capturando dados do excel por coluna
+id_paciente = oPaciente[oPaciente.columns[0]].tolist()
+caminho = oPaciente[oPaciente.columns[9]].tolist()
+
+#variáveis auxiliares para facilitar a concatenacao da lista
+#inicio = 'ALTER TABLE paciente ALTER COLUMN foto SET '
+inicio = 'UPDATE paciente SET foto = '
+w = ' where id='
+a = "'"
+
+#declaracao da lista para o for
+lista = []
+id_tabela = 1;
+#montando o comando SQL com os valores capturados do excel
+for i in range(len(oPaciente.index)):
+    lista.append(inicio +
+                a +
+                str(caminho[i]) +
+                a +
+                 w +
+                 str(id_tabela)
+                 )
+    id_tabela = id_tabela + 1
+
+
+#conectando com o banco de dados
+
+con = ps.connect(host='9.86.181.24', database='gerenciamentoMedicamento',
+user='postgres', password='ibm01bdc')
+cur = con.cursor()
+
+for comando in lista:
+    print(comando)
+    cur.execute(comando)
+    con.commit()
+con.close()

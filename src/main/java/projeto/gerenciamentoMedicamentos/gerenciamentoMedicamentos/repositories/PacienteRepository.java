@@ -13,6 +13,14 @@ public class PacienteRepository {
 	public PacienteRepository() {
 
 	}
+	
+	public Paciente getPaciente(int id) {
+		for(Paciente p : getListPaciente()) {
+			if(p.getId() == id)
+				return p;
+		}
+		return null;
+	}
 
 	public List<Paciente> getListPaciente() {
 		List<Paciente> pacientes = new ArrayList<Paciente>();
