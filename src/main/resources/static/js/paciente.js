@@ -65,7 +65,6 @@ function formatCarta(json){
 	$.each(json, function(idx, objP){
 		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="listaPacienteId(' + objP.id + ')"  data-toggle="modal" data-target="#exampleModal" >' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
 //		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="teste()">' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
-		objeto=objP
 	});
 	
 }
@@ -76,7 +75,7 @@ function formatModal(json){
 	modal = $('.modal-body');
 	modalFooter = $('.modal-footer');
 	modal.html('<strong>Nome: </strong>' + json.nome  + '<br/><br/>' + '<strong>Genêro: </strong>' + json.ala);
-	modalFooter.html('<a href="#" class="btn btn-success" onclick="alert(' + json.id + ')"><i class="fas fa-edit"></i></a>');
+	modalFooter.html('<a href="/paciente/' +  json.id + '\"' +  'class="btn btn-success"><i class="fas fa-edit"></i></a>');
 	
 }	
 	
