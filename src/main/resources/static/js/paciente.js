@@ -51,32 +51,52 @@ function fire_ajax_submit() {
     });
 }
 
+//get do id pelo onclick - tenho o id selecionado idclicado()
+function searchViaAjaxId(id) {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/getUmPaciente/" + id,
+        //data: JSON.stringify(search),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+        	dataTeste(data);
+  
+            console.log("SUCCESS : ", id);
+        },
+        error: function (e) {
+            console.log("ERROR : ", e);
+        }
+    });
+}
+
+function cliqueCarta(id){ 
+	dataTeste();
+};
+
 function formatData(json){
-	let imageTeste = 0;
-	paciente = $('#pacientesTable');
-	$.each(json, function(idx, objP){
-		paciente.append('<tr><td>' + objP.id + '</td>' + '<td>' + objP.nome + '</td>' + '<td>' + objP.ala + '</td>' +  '<td>' + '<img src="data:image/png;base64, ' + objP.imagem + '\">' + '</td>' +  '</tr>')
-		imageTeste = imageTeste + 1;
-		console.log(objP.imagem);
-		if(imageTeste >= 1){
-			return false;
-		}
-	});
-	
-//	paciente = $('.panel .carta .titulo');
-//	$.each(json, function(idx, objP){
-//		paciente.append('<div class="teste">' + objP.nome + '</div>')
-//	});
-	
+	var objeto = [];
 	let teste = 0;
 	paciente = $('.panel');
+	modal = $('#exampleModal .modal-body');
 	$.each(json, function(idx, objP){
-		paciente.append('<div class="carta">' + '<a href="#">' + '<div class="imagem">' + '<img src="images/adulto-cabelo-cara-220453.jpg"/>' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome+ '</div>' +'</div>')
+		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="cliqueCarta(' + objP.id + ')">' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
+//		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="teste()">' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
 		teste = teste + 1;
+		objeto = teste;
+		console.log(teste);
+		// jogar para o modal
 //		if(teste >= 4){
 //			return false;
 //		}
 	});
-	
-	
 }
+
+function dataTeste(json){
+	$.each(json, function(idx, objTeste){
+		alert(objTeste.id, objTeste.nome);
+	});
+}	
+	
