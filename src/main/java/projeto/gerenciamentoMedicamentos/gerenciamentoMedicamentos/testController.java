@@ -10,16 +10,24 @@ public class testController {
 	public String index() {
 		return "html/index";
 	}
+
 	@RequestMapping("/remedios")
 	public String remedios() {
 		return "html/remedios";
 	}
+
 	@RequestMapping("/doencas")
 	public String doencas() {
 		return "html/doencas";
 	}
+
 	@RequestMapping("/pacientes")
 	public String pacientes() {
 		return "html/pacientes";
+	}
+
+	@RequestMapping("/paciente")
+	public String paciente() {
+		return "html/paciente";
 	}
 }
