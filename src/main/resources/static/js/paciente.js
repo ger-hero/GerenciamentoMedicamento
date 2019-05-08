@@ -1,21 +1,9 @@
-/**
- * 
- */
-
 $(document).ready(function () {
-//    $("#pesq").click(function (event) {
-        //stop submit the form, we will post it manually.
         event.preventDefault();
-        limparListaPacientes();
-        fire_ajax_submit();
-//    });
+        listaPacientes();
 });
 
-function limparListaPacientes(){
-	$("#pacientesTable tbody tr").remove();
-}
-
-function fire_ajax_submit() {
+function listaPacientes() {
     var search = {}
     search["username"] = $("#username").val();
     $("#btn-search").prop("disabled", true);
@@ -32,7 +20,7 @@ function fire_ajax_submit() {
                 + JSON.stringify(data, null, 4) + "</pre>";
             $('#feedback').html(json);
             
-            formatData(data);
+            formatCarta(data);
 
             console.log("SUCCESS : ", data);
             $("#btn-search").prop("disabled", false);
@@ -51,32 +39,37 @@ function fire_ajax_submit() {
     });
 }
 
-function formatData(json){
-	let imageTeste = 0;
-	paciente = $('#pacientesTable');
-	$.each(json, function(idx, objP){
-		paciente.append('<tr><td>' + objP.id + '</td>' + '<td>' + objP.nome + '</td>' + '<td>' + objP.ala + '</td>' +  '<td>' + '<img src="data:image/png;base64, ' + objP.imagem + '\">' + '</td>' +  '</tr>')
-		imageTeste = imageTeste + 1;
-		console.log(objP.imagem);
-		if(imageTeste >= 1){
-			return false;
-		}
-	});
-	
-//	paciente = $('.panel .carta .titulo');
-//	$.each(json, function(idx, objP){
-//		paciente.append('<div class="teste">' + objP.nome + '</div>')
-//	});
-	
-	let teste = 0;
+//get do id pelo onclick - tenho o id selecionado idclicado()
+function listaPacienteId(id) {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/getUmPaciente/" + id,
+        //data: JSON.stringify(search),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+        	formatModal(data);
+        },
+        error: function (e) {
+            console.log("ERROR : ", e);
+        }
+    });
+}
+
+
+function formatCarta(json){
+	var objeto = [];
 	paciente = $('.panel');
 	$.each(json, function(idx, objP){
-		paciente.append('<div class="carta">' + '<a href="#">' + '<div class="imagem">' + '<img src="images/adulto-cabelo-cara-220453.jpg"/>' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome+ '</div>' +'</div>')
-		teste = teste + 1;
-//		if(teste >= 4){
-//			return false;
-//		}
+		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="listaPacienteId(' + objP.id + ')">' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
+//		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="teste()">' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
 	});
-	
-	
 }
+
+function formatModal(json){
+	alert(json.nome)
+	console.log(json.nome);
+}	
+	
