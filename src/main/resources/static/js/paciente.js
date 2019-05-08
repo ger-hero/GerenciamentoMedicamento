@@ -1,21 +1,9 @@
-/**
- * 
- */
-
 $(document).ready(function () {
-//    $("#pesq").click(function (event) {
-        //stop submit the form, we will post it manually.
         event.preventDefault();
-        limparListaPacientes();
-        fire_ajax_submit();
-//    });
+        listaPacientes();
 });
 
-function limparListaPacientes(){
-	$("#pacientesTable tbody tr").remove();
-}
-
-function fire_ajax_submit() {
+function listaPacientes() {
     var search = {}
     search["username"] = $("#username").val();
     $("#btn-search").prop("disabled", true);
@@ -32,7 +20,7 @@ function fire_ajax_submit() {
                 + JSON.stringify(data, null, 4) + "</pre>";
             $('#feedback').html(json);
             
-            formatData(data);
+            formatCarta(data);
 
             console.log("SUCCESS : ", data);
             $("#btn-search").prop("disabled", false);
@@ -52,7 +40,7 @@ function fire_ajax_submit() {
 }
 
 //get do id pelo onclick - tenho o id selecionado idclicado()
-function searchViaAjaxId(id) {
+function listaPacienteId(id) {
     $.ajax({
         type: "GET",
         contentType: "application/json",
@@ -62,9 +50,7 @@ function searchViaAjaxId(id) {
         cache: false,
         timeout: 600000,
         success: function (data) {
-        	dataTeste(data);
-  
-            console.log("SUCCESS : ", id);
+        	formatModal(data);
         },
         error: function (e) {
             console.log("ERROR : ", e);
@@ -72,31 +58,18 @@ function searchViaAjaxId(id) {
     });
 }
 
-function cliqueCarta(id){ 
-	dataTeste();
-};
 
-function formatData(json){
+function formatCarta(json){
 	var objeto = [];
-	let teste = 0;
 	paciente = $('.panel');
-	modal = $('#exampleModal .modal-body');
 	$.each(json, function(idx, objP){
-		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="cliqueCarta(' + objP.id + ')">' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
+		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="listaPacienteId(' + objP.id + ')">' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
 //		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="teste()">' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
-		teste = teste + 1;
-		objeto = teste;
-		console.log(teste);
-		// jogar para o modal
-//		if(teste >= 4){
-//			return false;
-//		}
 	});
 }
 
-function dataTeste(json){
-	$.each(json, function(idx, objTeste){
-		alert(objTeste.id, objTeste.nome);
-	});
+function formatModal(json){
+	alert(json.nome)
+	console.log(json.nome);
 }	
 	
