@@ -13,9 +13,6 @@
   .navbar a {
     color: white; }
 
-#divDaTabela {
-  margin-top: 200px; }
-
 .site--interno .panel {
   display: flex;
   flex-wrap: wrap; }
@@ -45,15 +42,21 @@
       text-align: center;
       white-space: nowrap; }
 
+.site--interno .perfil .foto img {
+  border-radius: 25%; }
+
 #exampleModal .modal-footer a {
   width: 100%; }
 
 .footer-web {
   color: white;
   background-color: #212529;
+  bottom: 0;
   font-size: 12px;
   padding-bottom: 10px;
-  padding-top: 10px; }
+  padding-top: 10px;
+  position: absolute;
+  width: 100%; }
   .footer-web a {
     color: white;
     margin: 5px 20px 14px 0px; }
