@@ -31,10 +31,10 @@ function listaPacienteId(id) {
 
 function formatInformacao(json){
 	//alert(json.nome)
-	//console.log(json.nome);
-	panel = $('.panel .nome');
+	console.log(json);
+	panel = $('.perfil');
 	//panel-nome = $('.nome');
-	panel.html('<strong>Nome: </strong>' + json.nome);
+	panel.html('<div class="foto"><img src="' + json.imagem + '\">' + '</div>');
 	//modalFooter.html('<a href="/paciente/' +  json.id + '\"' +  'class="btn btn-success"><i class="fas fa-edit"></i></a>');
 }	
 
