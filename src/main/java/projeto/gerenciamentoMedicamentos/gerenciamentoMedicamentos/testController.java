@@ -31,14 +31,14 @@ public class testController {
 		return "html/pacientes";
 	}
 
-//	@RequestMapping("/paciente")
-//	public String paciente() {
-//		return "html/paciente";
-//	}
-	
-	@ResponseBody
 	@RequestMapping(value = "/paciente/{id}")
 	public String paciente(@PathVariable(value = "id") int id) {
-		return "html/paciente/"+id;
+		return "html/paciente";
 	}
+	
+//	@ResponseBody
+//	@RequestMapping(value = "/paciente/{id}")
+//	public String paciente(@PathVariable(value = "id") int id) {
+//		return "html/paciente/"+id;
+//	}
 }
