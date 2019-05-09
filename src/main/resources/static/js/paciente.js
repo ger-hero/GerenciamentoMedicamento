@@ -63,7 +63,7 @@ function formatCarta(json){
 	var objeto = [];
 	paciente = $('.panel');
 	$.each(json, function(idx, objP){
-		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="listaPacienteId(' + objP.id + ')"  data-toggle="modal" data-target="#exampleModal" >' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
+		paciente.append('<div class="carta">' + '<a href="javascript:void(0);" class="teste" onclick="listaPacienteId(' + objP.id + ')"  data-toggle="modal" data-target="#exampleModal" >' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
 //		paciente.append('<div class="carta">' + '<a href="#" class="teste" onclick="teste()">' + '<div class="imagem">' + '<img src="' + objP.imagem + '\">' +'</div>' + '</a>' + '<div class="titulo">' + objP.nome + '</div>' +'</div>')
 	});
 	
