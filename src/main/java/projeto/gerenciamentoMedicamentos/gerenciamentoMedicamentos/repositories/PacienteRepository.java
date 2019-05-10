@@ -11,15 +11,15 @@ import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Pacient
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.PacienteDoenca;
 
 public class PacienteRepository {
-	
+
 	public Paciente getPaciente(int id) {
-		for(Paciente p : getListPacienteDoenca()) {
-			if(p.getId() == id)
+		for (Paciente p : getListPacienteDoenca()) {
+			if (p.getId() == id)
 				return p;
 		}
 		return null;
 	}
-	
+
 	public List<Paciente> getListPacienteDoenca() {
 		List<Paciente> pacientes = new ArrayList<Paciente>();
 		ResultSet resultSet;
@@ -36,7 +36,7 @@ public class PacienteRepository {
 				nomePaciente = resultSet.getString("nome");
 				ala = resultSet.getString("ala");
 				foto = resultSet.getString("foto");
-				
+
 				pacientes.add(new Paciente(idPaciente, nomePaciente, ala, foto, getListDoencas(idPaciente)));
 			}
 		} catch (SQLException e) {
@@ -44,28 +44,24 @@ public class PacienteRepository {
 		}
 		return pacientes;
 	}
-	
+
 	public List<Doenca> getListDoencas(int idPaciente) {
 		List<Doenca> doencas = new ArrayList<Doenca>();
-//		doencas.add(new Doenca(4, "outra", "muito ruim", true, 1));
-//		doencas.add(new Doenca(3, "doenca", "muito ruim", false, 2));
-		
+
 		PacienteDoencaRepository pacienteDoencaRepository = new PacienteDoencaRepository();
-		
+
 		List<PacienteDoenca> pacientes = new ArrayList<PacienteDoenca>();
-		
-//		pacienteDoencaRepository.retornaPacienteDoencas();
-		
-//		pacientes.addAll(pacienteDoencaRepository.getListPacienteDoenca());		
-//		
-//		for(PacienteDoenca p : pacientes) {
-//			if(p.getIdPaciente() == idPaciente) {
-//				doencas.add(getDoenca(p.getIdDoenca()));
-//			}
-//		}
+
+		pacientes.addAll(pacienteDoencaRepository.getListPacienteDoenca());
+
+		for (PacienteDoenca p : pacientes) {
+			if (p.getIdPaciente() == idPaciente) {
+				doencas.add(getDoenca(p.getIdDoenca()));
+			}
+		}
 		return doencas;
 	}
-	
+
 	public Doenca getDoenca(int idDoenca) {
 		DoencaRepository dr = new DoencaRepository();
 		return dr.getDoenca(idDoenca);

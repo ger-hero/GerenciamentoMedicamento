@@ -21,9 +21,9 @@ public class PacienteDoencaRepository {
 
 		try {
 			while (resultSet.next()) {
-				id = Integer.valueOf(resultSet.getString("id"));
-				idPaciente = Integer.valueOf(resultSet.getString("idpaciente"));
-				idDoenca = Integer.valueOf(resultSet.getString("iddoenca"));
+				id = resultSet.getInt("id");
+				idPaciente = resultSet.getInt("idpaciente");
+				idDoenca = resultSet.getInt("iddoenca");
 
 				pacienteDoencas.add(new PacienteDoenca(id, idPaciente, idDoenca));
 			}
@@ -32,7 +32,7 @@ public class PacienteDoencaRepository {
 		}
 		return pacienteDoencas;
 	}
-
+	
 	public ResultSet retornaPacienteDoencas() {
 		String sql = "SELECT * FROM pacientedoenca";
 		Conexao con = new Conexao();
