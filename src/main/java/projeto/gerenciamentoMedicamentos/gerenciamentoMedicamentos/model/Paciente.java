@@ -1,5 +1,6 @@
 package projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Paciente {
@@ -9,21 +10,15 @@ public class Paciente {
 	private String foto;
 	private List<Doenca> doencas;
 
-	public Paciente(int id, String nome, String ala, String foto) {
+	public Paciente(int id, String nome, String ala, String foto, List<Doenca> doencas1) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.ala = ala;
 		this.foto = foto;
-	}
-
-	public Paciente(int id, String nome, String ala, String foto, List<Doenca> doencas) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.ala = ala;
-		this.foto = foto;
-		this.doencas = doencas;
+		this.doencas = new ArrayList<Doenca>();
+		this.doencas.add(new Doenca(1, "doenca", "muito ruim", true, 1));
+		this.doencas.add(new Doenca(2, "doenca", "muito ruim", false, 2));
 	}
 
 	public int getId() {
