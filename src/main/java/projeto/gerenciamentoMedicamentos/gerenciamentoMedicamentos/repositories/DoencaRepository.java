@@ -9,6 +9,14 @@ import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.Conexao;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Doenca;
 
 public class DoencaRepository {
+	
+	public Doenca getDoenca(int id) {
+		for(Doenca d : getListDoenca()) {
+			if(d.getId() == id)
+				return d;
+		}
+		return null;
+	}
 
 	public List<Doenca> getListDoenca() {
 		List<Doenca> doencas = new ArrayList<Doenca>();
