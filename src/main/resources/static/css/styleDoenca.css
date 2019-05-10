@@ -1,0 +1,31 @@
+.footer-web {
+  color: white;
+  background-color: #212529;
+  font-size: 12px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.footer-web a {
+  color: white;
+  margin: 5px 20px 14px 0px;
+}
+.footer-web .sass-icon :hover {
+  color: #bf4080;
+}
+.footer-web .js-icon :hover {
+  color: crimson;
+}
+.footer-web .java-icon :hover {
+  color: brown;
+}
+.footer-web .python-icon :hover {
+  color: yellow;
+}
+.footer-web .db-icon :hover {
+  color: blue;
+}
+.footer-web .springboot-icon :hover {
+  color: green;
+}
+
+/*# sourceMappingURL=styleDoenca.css.map */

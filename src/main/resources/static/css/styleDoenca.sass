@@ -1,9 +1,15 @@
+@import "_functions.scss"
+@import "_variables.scss"
+@import "_breakpoints.scss"
+
 .footer-web
     color: white
+    bottom: 0
     background-color: #212529
     font-size: 12px
     padding-bottom: 10px
     padding-top: 10px
+    width: 100%
     & a
         color: white
         margin: 5px 20px 14px 0px
@@ -25,3 +31,39 @@
     & .springboot-icon
         & :hover
             color: green
+
+.footer-mobile
+    color: white
+    bottom: 0
+    background-color: #212529
+    font-size: 12px
+    padding-bottom: 10px
+    padding-top: 10px
+    width: 100%
+    & a
+        color: white
+        margin: 5px 20px 14px 0px
+    & .sass-icon
+        & :hover
+            color: #bf4080
+    & .js-icon
+        & :hover
+            color: crimson
+    & .java-icon
+        & :hover
+            color: brown
+    & .python-icon
+        & :hover
+            color: yellow
+    & .db-icon
+        & :hover
+            color: blue
+    & .springboot-icon
+        & :hover
+            color: green
+//Vindo do teste
+@include media-breakpoint-down(sm)
+    .h1-mixin
+        font-size: 10px
+        margin-left: -15px
+        margin-right: -15px
