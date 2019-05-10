@@ -8,6 +8,7 @@ import java.util.List;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.Conexao;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Doenca;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Paciente;
+import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.PacienteDoenca;
 
 public class PacienteRepository {
 	
@@ -36,7 +37,7 @@ public class PacienteRepository {
 				ala = resultSet.getString("ala");
 				foto = resultSet.getString("foto");
 				
-				pacientes.add(new Paciente(idPaciente, nomePaciente, ala, foto, getDoencas(idPaciente)));
+				pacientes.add(new Paciente(idPaciente, nomePaciente, ala, foto, getListDoencas(idPaciente)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -44,12 +45,30 @@ public class PacienteRepository {
 		return pacientes;
 	}
 	
-	public List<Doenca> getDoencas(int id) {
+	public List<Doenca> getListDoencas(int idPaciente) {
 		List<Doenca> doencas = new ArrayList<Doenca>();
-		doencas.add(new Doenca(1, "outra", "muito ruim", true, 1));
-		doencas.add(new Doenca(2, "doenca", "muito ruim", false, 2));
-
+//		doencas.add(new Doenca(4, "outra", "muito ruim", true, 1));
+//		doencas.add(new Doenca(3, "doenca", "muito ruim", false, 2));
+		
+		PacienteDoencaRepository pacienteDoencaRepository = new PacienteDoencaRepository();
+		
+		List<PacienteDoenca> pacientes = new ArrayList<PacienteDoenca>();
+		
+//		pacienteDoencaRepository.retornaPacienteDoencas();
+		
+//		pacientes.addAll(pacienteDoencaRepository.getListPacienteDoenca());		
+//		
+//		for(PacienteDoenca p : pacientes) {
+//			if(p.getIdPaciente() == idPaciente) {
+//				doencas.add(getDoenca(p.getIdDoenca()));
+//			}
+//		}
 		return doencas;
+	}
+	
+	public Doenca getDoenca(int idDoenca) {
+		DoencaRepository dr = new DoencaRepository();
+		return dr.getDoenca(idDoenca);
 	}
 
 	public ResultSet retornaPacientes() {

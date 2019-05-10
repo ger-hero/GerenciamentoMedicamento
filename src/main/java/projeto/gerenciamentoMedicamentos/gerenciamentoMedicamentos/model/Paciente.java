@@ -10,15 +10,14 @@ public class Paciente {
 	private String foto;
 	private List<Doenca> doencas;
 
-	public Paciente(int id, String nome, String ala, String foto, List<Doenca> doencas1) {
+	public Paciente(int id, String nome, String ala, String foto, List<Doenca> doencas) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.ala = ala;
 		this.foto = foto;
 		this.doencas = new ArrayList<Doenca>();
-		this.doencas.add(new Doenca(1, "doenca", "muito ruim", true, 1));
-		this.doencas.add(new Doenca(2, "doenca", "muito ruim", false, 2));
+		this.doencas.addAll(doencas);
 	}
 
 	public int getId() {

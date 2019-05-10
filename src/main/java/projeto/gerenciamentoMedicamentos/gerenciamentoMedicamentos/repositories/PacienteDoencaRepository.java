@@ -12,9 +12,9 @@ public class PacienteDoencaRepository {
 
 	public List<PacienteDoenca> getListPacienteDoenca() {
 		List<PacienteDoenca> pacienteDoencas = new ArrayList<PacienteDoenca>();
-		ResultSet resultSet;
+		ResultSet resultSet = null;
 		resultSet = this.retornaPacienteDoencas();
-
+		
 		int id;
 		int idPaciente;
 		int idDoenca;
@@ -28,18 +28,17 @@ public class PacienteDoencaRepository {
 				pacienteDoencas.add(new PacienteDoenca(id, idPaciente, idDoenca));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return pacienteDoencas;
 	}
 
 	public ResultSet retornaPacienteDoencas() {
-		String sql = "SELECT * FROM paciente_doenca ORDER BY id";
+		String sql = "SELECT * FROM pacientedoenca";
 		Conexao con = new Conexao();
 		ResultSet consulta = null;
 		consulta = con.executeQuery(sql);
 		return consulta;
 	}
+	
 }
