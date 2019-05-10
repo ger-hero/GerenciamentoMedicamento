@@ -1,9 +1,11 @@
 .footer-web {
   color: white;
+  bottom: 0;
   background-color: #212529;
   font-size: 12px;
   padding-bottom: 10px;
   padding-top: 10px;
+  width: 100%;
 }
 .footer-web a {
   color: white;
@@ -26,6 +28,46 @@
 }
 .footer-web .springboot-icon :hover {
   color: green;
+}
+
+.footer-mobile {
+  color: white;
+  bottom: 0;
+  background-color: #212529;
+  font-size: 12px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+}
+.footer-mobile a {
+  color: white;
+  margin: 5px 20px 14px 0px;
+}
+.footer-mobile .sass-icon :hover {
+  color: #bf4080;
+}
+.footer-mobile .js-icon :hover {
+  color: crimson;
+}
+.footer-mobile .java-icon :hover {
+  color: brown;
+}
+.footer-mobile .python-icon :hover {
+  color: yellow;
+}
+.footer-mobile .db-icon :hover {
+  color: blue;
+}
+.footer-mobile .springboot-icon :hover {
+  color: green;
+}
+
+@media (max-width: 767.98px) {
+  .h1-mixin {
+    font-size: 10px;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
 }
 
 /*# sourceMappingURL=styleDoenca.css.map */
