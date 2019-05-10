@@ -31,7 +31,7 @@ function listaPacienteId(id) {
 
 function formatInformacao(json){
 	//alert(json.nome)
-	console.log(json);
+	console.log(json.doencas);
 	panel = $('.perfil');
 	//panel-nome = $('.nome');
 	panel.html('<div class="foto"><img src="' + json.imagem + '\">' + '</div>');
