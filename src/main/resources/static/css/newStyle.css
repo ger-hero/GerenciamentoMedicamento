@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,900");
+body {
+  font-family: "Roboto", sans-serif; }
+
 .site--interno {
   margin-top: 100px; }
 
@@ -43,7 +47,7 @@
       white-space: nowrap; }
 
 .site--interno .perfil .foto img {
-  border-radius: 25%; }
+  border-radius: 9%; }
 
 #exampleModal .modal-footer a {
   width: 100%; }
@@ -51,11 +55,9 @@
 .footer-web {
   color: white;
   background-color: #212529;
-  bottom: 0;
   font-size: 12px;
   padding-bottom: 10px;
   padding-top: 10px;
-  position: absolute;
   width: 100%; }
   .footer-web a {
     color: white;
