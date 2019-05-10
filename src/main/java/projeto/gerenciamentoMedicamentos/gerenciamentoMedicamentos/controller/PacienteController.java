@@ -17,7 +17,7 @@ public class PacienteController {
 
 	@RequestMapping("/getPaciente")
 	public List<Paciente> buscarPaciente() {
-		return new PacienteRepository().getListPaciente();
+		return new PacienteRepository().getListPacienteDoenca();
 	}
 	 
 	@ResponseBody
