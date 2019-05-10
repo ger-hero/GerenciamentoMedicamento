@@ -1,10 +1,13 @@
 package projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model;
 
+import java.util.List;
+
 public class Paciente {
 	private int id;
 	private String nome;
 	private String ala;
 	private String foto;
+	private List<Doenca> doencas;
 
 	public Paciente(int id, String nome, String ala, String foto) {
 		super();
@@ -14,35 +17,33 @@ public class Paciente {
 		this.foto = foto;
 	}
 
-	public int getId() {
-		return id;
+	public Paciente(int id, String nome, String ala, String foto, List<Doenca> doencas) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.ala = ala;
+		this.foto = foto;
+		this.doencas = doencas;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getId() {
+		return id;
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public String getAla() {
 		return ala;
-	}
-
-	public void setAla(String ala) {
-		this.ala = ala;
 	}
 
 	public String getImagem() {
 		return this.foto;
 	}
-	
-	public void setImagem(String imagem) {
-		this.foto = imagem;
+
+	public List<Doenca> getDoencas() {
+		return doencas;
 	}
+
 }
