@@ -39,9 +39,6 @@ public class DoencaRepository {
 
 	public ResultSet retornaDoencas() {
 		String sql = "SELECT * FROM doenca";
-		Conexao con = new Conexao();
-		ResultSet consulta = null;
-		consulta = con.executeQuery(sql);
-		return consulta;
+		return Conexao.getInstance().executeQuery(sql);
 	}
 }

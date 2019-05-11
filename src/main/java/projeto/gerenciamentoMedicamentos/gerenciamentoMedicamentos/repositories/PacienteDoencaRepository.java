@@ -35,10 +35,6 @@ public class PacienteDoencaRepository {
 
 	public ResultSet retornaPacienteDoencas() {
 		String sql = "SELECT * FROM pacientedoenca";
-		Conexao con = new Conexao();
-		ResultSet consulta = null;
-		consulta = con.executeQuery(sql);
-		return consulta;
+		return Conexao.getInstance().executeQuery(sql);
 	}
-
 }

@@ -51,19 +51,14 @@ public class PacienteRepository {
 	}
 
 	public Doenca getDoenca(int idDoenca) {
-		List<Doenca> doenca = DadosMemoria.getDoencas()
-				.stream()
-				.filter((Doenca d) -> d.getId() == idDoenca)
+		List<Doenca> doenca = DadosMemoria.getDoencas().stream().filter((Doenca d) -> d.getId() == idDoenca)
 				.collect(Collectors.toList());
-		
+
 		return doenca.get(0);
 	}
 
 	public ResultSet retornaPacientes() {
 		String sql = "SELECT * FROM paciente ORDER BY id";
-		Conexao con = new Conexao();
-		ResultSet consulta = null;
-		consulta = con.executeQuery(sql);
-		return consulta;
+		return Conexao.getInstance().executeQuery(sql);
 	}
 }

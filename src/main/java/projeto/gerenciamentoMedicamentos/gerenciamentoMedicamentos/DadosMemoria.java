@@ -13,7 +13,7 @@ import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.repositories.
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.repositories.RemedioRepository;
 
 public final class DadosMemoria {
-	private static DadosMemoria instance;
+	private static DadosMemoria instance = null;
 	
 	private static List<Paciente> pacientes = new ArrayList<Paciente>();
 	private static List<Doenca> doencas = new ArrayList<Doenca>();
@@ -27,7 +27,7 @@ public final class DadosMemoria {
 		remedios.addAll(new RemedioRepository().getListRemedios());
 	}
 	
-	public static DadosMemoria getInstance() {
+	public static synchronized DadosMemoria getInstance() {
 		if(instance == null) {
 			instance = new DadosMemoria();
 		}
