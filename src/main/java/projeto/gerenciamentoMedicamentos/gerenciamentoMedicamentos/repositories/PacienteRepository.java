@@ -6,21 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.Conexao;
+import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.DadosMemoria;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Doenca;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Paciente;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.PacienteDoenca;
 
 public class PacienteRepository {
 
-	public Paciente getPaciente(int id) {
-		for (Paciente p : getListPacienteDoenca()) {
-			if (p.getId() == id)
-				return p;
-		}
-		return null;
-	}
-
-	public List<Paciente> getListPacienteDoenca() {
+	public List<Paciente> getListPaciente() {
 		List<Paciente> pacientes = new ArrayList<Paciente>();
 		ResultSet resultSet;
 		resultSet = this.retornaPacientes();
@@ -32,7 +25,7 @@ public class PacienteRepository {
 
 		try {
 			while (resultSet.next()) {
-				idPaciente = Integer.valueOf(resultSet.getString("id"));
+				idPaciente = resultSet.getInt("id");
 				nomePaciente = resultSet.getString("nome");
 				ala = resultSet.getString("ala");
 				foto = resultSet.getString("foto");

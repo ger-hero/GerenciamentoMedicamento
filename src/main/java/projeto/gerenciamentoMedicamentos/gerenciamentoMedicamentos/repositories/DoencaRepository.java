@@ -9,10 +9,10 @@ import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.Conexao;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Doenca;
 
 public class DoencaRepository {
-	
+
 	public Doenca getDoenca(int id) {
-		for(Doenca d : getListDoenca()) {
-			if(d.getId() == id)
+		for (Doenca d : getListDoenca()) {
+			if (d.getId() == id)
 				return d;
 		}
 		return null;
@@ -40,12 +40,9 @@ public class DoencaRepository {
 				doencas.add(new Doenca(id, nome, exemplo, agressivo, idremedio));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return doencas;
-
 	}
 
 	public ResultSet retornaDoencas() {
@@ -55,5 +52,4 @@ public class DoencaRepository {
 		consulta = con.executeQuery(sql);
 		return consulta;
 	}
-
 }

@@ -14,7 +14,7 @@ public class PacienteDoencaRepository {
 		List<PacienteDoenca> pacienteDoencas = new ArrayList<PacienteDoenca>();
 		ResultSet resultSet = null;
 		resultSet = this.retornaPacienteDoencas();
-		
+
 		int id;
 		int idPaciente;
 		int idDoenca;
@@ -32,7 +32,7 @@ public class PacienteDoencaRepository {
 		}
 		return pacienteDoencas;
 	}
-	
+
 	public ResultSet retornaPacienteDoencas() {
 		String sql = "SELECT * FROM pacientedoenca";
 		Conexao con = new Conexao();
@@ -40,5 +40,5 @@ public class PacienteDoencaRepository {
 		consulta = con.executeQuery(sql);
 		return consulta;
 	}
-	
+
 }
