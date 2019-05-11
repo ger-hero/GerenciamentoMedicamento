@@ -22,9 +22,8 @@ public final class DadosMemoria {
 	
 	private DadosMemoria() {
 		pacienteDoencas.addAll(new PacienteDoencaRepository().getListPacienteDoenca());
-		pacientes.addAll(new PacienteRepository().getListPaciente());
 		doencas.addAll(new DoencaRepository().getListDoenca());
-		//pacienteDoencas.addAll(new PacienteDoencaRepository().getListPacienteDoenca());
+		pacientes.addAll(new PacienteRepository().getListPaciente());
 		remedios.addAll(new RemedioRepository().getListRemedios());
 	}
 	

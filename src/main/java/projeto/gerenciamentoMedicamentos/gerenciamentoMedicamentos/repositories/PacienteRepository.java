@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.Conexao;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.DadosMemoria;
@@ -41,13 +42,7 @@ public class PacienteRepository {
 	public List<Doenca> getListDoencas(int idPaciente) {
 		List<Doenca> doencas = new ArrayList<Doenca>();
 
-		PacienteDoencaRepository pacienteDoencaRepository = new PacienteDoencaRepository();
-
-		List<PacienteDoenca> pacientes = new ArrayList<PacienteDoenca>();
-
-		pacientes.addAll(pacienteDoencaRepository.getListPacienteDoenca());
-
-		for (PacienteDoenca p : pacientes) {
+		for (PacienteDoenca p : DadosMemoria.getPacientedoencas()) {
 			if (p.getIdPaciente() == idPaciente) {
 				doencas.add(getDoenca(p.getIdDoenca()));
 			}
@@ -56,8 +51,12 @@ public class PacienteRepository {
 	}
 
 	public Doenca getDoenca(int idDoenca) {
-		DoencaRepository dr = new DoencaRepository();
-		return dr.getDoenca(idDoenca);
+		List<Doenca> doenca = DadosMemoria.getDoencas()
+				.stream()
+				.filter((Doenca d) -> d.getId() == idDoenca)
+				.collect(Collectors.toList());
+		
+		return doenca.get(0);
 	}
 
 	public ResultSet retornaPacientes() {
