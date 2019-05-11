@@ -40,9 +40,9 @@ function formatInformacao(json){
 					'<div class="dados">' +
 						'<div class="nome"><strong>Nome: </strong>' + json.nome + '</div>' +
 						'<div class="ala"><strong>Ala: </strong>' + json.ala + '</div>' +
-					'</div>' +
-				'<div class="doencas">' + json.doencas[0].exemplo + '</div>' +
-				'</div>');
+					'</div>');
+				//'<div class="doencas">' + json.doencas[0].exemplo + '</div>' +
+				//'</div>');
 	//modalFooter.html('<a href="/paciente/' +  json.id + '\"' +  'class="btn btn-success"><i class="fas fa-edit"></i></a>');
 }	
 
