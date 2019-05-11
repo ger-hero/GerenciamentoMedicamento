@@ -55,9 +55,33 @@ body
 // Perfil paciente
 .site--interno
 	& .perfil
+		display: flex
+		& .linha
+			flex: 0.99
+			border-top: 1px solid #eeeeee
+			position: relative
+			margin: 100px 15px 0px 15px
+			& .icone
+				position: absolute
+				top: -17px
+				right: 0
+				box-sizing: content-box
+				background-color: white
+				color: #a5a5a5
+				border: 5px solid #FFF
 		& .foto
 			& img
-				border-radius: 9%				
+				border-radius: 9%
+		& .informacoes
+			flex: 1
+			border: 1px solid
+			border-radius: 9px			
+			padding: 20px
+			& .dados
+				display: flex
+				& .nome, & .ala
+					flex: 1
+					text-align: center						
 
 // modal				
 #exampleModal
@@ -69,11 +93,11 @@ body
 .footer-web
 	color: white
 	background-color: #212529
-	//bottom: 0
+	bottom: 0
 	font-size: 12px
 	padding-bottom: 10px
 	padding-top: 10px
-	//position: absolute
+	position: absolute
 	width: 100%
 	& a
 		color: white

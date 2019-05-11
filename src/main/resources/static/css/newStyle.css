@@ -46,8 +46,33 @@ body {
       text-align: center;
       white-space: nowrap; }
 
-.site--interno .perfil .foto img {
-  border-radius: 9%; }
+.site--interno .perfil {
+  display: flex; }
+  .site--interno .perfil .linha {
+    flex: 0.99;
+    border-top: 1px solid #eeeeee;
+    position: relative;
+    margin: 100px 15px 0px 15px; }
+    .site--interno .perfil .linha .icone {
+      position: absolute;
+      top: -17px;
+      right: 0;
+      box-sizing: content-box;
+      background-color: white;
+      color: #a5a5a5;
+      border: 5px solid #FFF; }
+  .site--interno .perfil .foto img {
+    border-radius: 9%; }
+  .site--interno .perfil .informacoes {
+    flex: 1;
+    border: 1px solid;
+    border-radius: 9px;
+    padding: 20px; }
+    .site--interno .perfil .informacoes .dados {
+      display: flex; }
+      .site--interno .perfil .informacoes .dados .nome, .site--interno .perfil .informacoes .dados .ala {
+        flex: 1;
+        text-align: center; }
 
 #exampleModal .modal-footer a {
   width: 100%; }
@@ -55,9 +80,11 @@ body {
 .footer-web {
   color: white;
   background-color: #212529;
+  bottom: 0;
   font-size: 12px;
   padding-bottom: 10px;
   padding-top: 10px;
+  position: absolute;
   width: 100%; }
   .footer-web a {
     color: white;
