@@ -89,7 +89,7 @@ function formatInformacao(json){
 		doencas.append('<div class="doenca doenca-' + idx + '\">' +
 							'<div class="doenca-nome">' +
 								'<div><strong>Doença:</strong></div>' +
-								'<div>' + objP.doenca + '</div>' +
+								'<div>' + objP.nome + '</div>' +
 							'</div>' +
 							'<div class="doenca-descricao">' +
 								'<div><strong>Descrição:</strong></div>' +
