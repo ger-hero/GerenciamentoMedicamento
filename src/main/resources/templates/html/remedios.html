@@ -8,7 +8,7 @@
 		<title>Gerenciamento de Medicações</title>
 	</head>
 	<body class="site site--interno">
-		<header class="header-web">
+		<header class="header-web d-none d-md-block">
 			<nav class="navbar navbar-expand-md navbar-dark" role="navigation">
 				<div class="container">
 					<a class="navbar-brand" href="/"><i class="fas fa-home"></i></a>
@@ -19,19 +19,42 @@
 				</div>
 			</nav>
 		</header>
+		<header class="header-mobile d-block d-md-none">
+			<div class="container">
+				<div class="links">
+					<div class="home">
+						<a href="/"><i class="fas fa-home fa-2x"></i></a>
+					</div>
+					<div class="menu">
+						<a href="javascript:void(0)" data-toggle="collapse" data-target="#menu-collapse" class="" aria-expanded="true"><i class="fas fa-bars fa-2x"></i></a>
+					</div>
+				</div>
+			</div>
+			<div id="menu-collapse" class="navbar-collapse hidden-print collapse">
+				<div class="menu">
+					<ul class="nav navbar-nav">
+						<a class="nav-link item" href="/pacientes">Pacientes</a>
+						<a class="nav-link item" href="/remedios">Remedios</a>
+						<a class="nav-link item" href="/doencas">Doenças</a>
+					</ul>
+				</div>
+			</div>
+		</header>
 		<div class="container" id='divDaTabela'>
-			<table class="table table-striped maxH table-hover" id='remediosTable'>
-				<thead class="thead-dark">
-					<tr>
-						<th>ID</th>
-						<th>Nome</th>
-						<th>Indicação</th>
-						<th>Manhã</th>
-						<th>Tarde</th>
-						<th>Noite</th>
-					</tr>
-				</thead>
-			</table>
+			<div class="table-responsive">
+				<table class="table table-striped maxH table-hover" id='remediosTable'>
+					<thead class="thead-dark">
+						<tr>
+							<th class="d-none d-md-block">ID</th>
+							<th>Nome</th>
+							<th>Indicação</th>
+							<th>Manhã</th>
+							<th>Tarde</th>
+							<th>Noite</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
 		</div> 
 		<!-- Scripts de jQuery, Popper e JavaScript -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
