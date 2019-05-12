@@ -11,9 +11,9 @@ body {
 .site--interno {
   margin-top: 100px; }
 
-.title-teste {
-  color: blue; }
-
+@media (max-width: 767.98px) {
+  .site--interno {
+    margin-top: 0px; } }
 .header-web {
   background-color: #343a40;
   position: fixed;
@@ -24,6 +24,26 @@ body {
   .header-web a {
     color: white; }
 
+@media (max-width: 767.98px) {
+  .header-mobile {
+    background-color: #343a40;
+    margin-bottom: 40px;
+    padding: 10px 0px; }
+    .header-mobile .links {
+      display: flex; }
+      .header-mobile .links .home, .header-mobile .links .menu {
+        flex: 1; }
+        .header-mobile .links .home a, .header-mobile .links .menu a {
+          color: white; }
+      .header-mobile .links .menu {
+        margin-right: 15px;
+        text-align: right; }
+    .header-mobile #menu-collapse .navbar-nav {
+      margin-top: 5px; }
+      .header-mobile #menu-collapse .navbar-nav .item {
+        margin: 0px 15px 0px 15px; }
+      .header-mobile #menu-collapse .navbar-nav a {
+        color: white; } }
 .site--interno .panel {
   display: flex;
   flex-wrap: wrap; }
@@ -53,6 +73,10 @@ body {
       text-align: center;
       white-space: nowrap; }
 
+@media (max-width: 767.98px) {
+  .site--interno .panel .carta {
+    flex: 1 0 100%;
+    margin-right: 0px; } }
 .site--interno .perfil {
   display: flex;
   margin-bottom: 50px; }

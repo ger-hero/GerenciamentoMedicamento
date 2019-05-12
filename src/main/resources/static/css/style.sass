@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,900')
+@import "_functions.scss"
+@import "_variables.scss"
+@import "_breakpoints.scss"
 
 body
 	font-family: 'Roboto', sans-serif
@@ -9,15 +12,15 @@ body
 .icone--nagressivo
 	color: #bbbbbb
 	
-
+// Margin das paginas internas, para nao colidir com header
 .site--interno
 	margin-top: 100px
+	
+@include media-breakpoint-down(sm)
+	.site--interno
+		margin-top: 0px
 
-.title-teste
-	color: blue
-
-
-// navbar
+// Header
 .header-web
 	background-color: #343a40
 	position: fixed
@@ -27,6 +30,28 @@ body
 	z-index: 9999
 	& a
 		color: white
+		
+@include media-breakpoint-down(sm)
+	.header-mobile
+		background-color: #343a40
+		margin-bottom: 40px
+		padding: 10px 0px
+		& .links
+			display: flex
+			& .home, & .menu
+				flex: 1
+				& a
+					color: white
+			& .menu
+				margin-right: 15px
+				text-align: right
+		& #menu-collapse
+			& .navbar-nav
+				margin-top: 5px
+				& .item
+					margin: 0px 15px 0px 15px
+				& a
+					color: white
 
 // Pacientes
 .site--interno
@@ -59,6 +84,13 @@ body
 				transform: translateX(-50%) translateY(50%)
 				text-align: center
 				white-space: nowrap
+
+@include media-breakpoint-down(sm)
+	.site--interno
+		& .panel
+			& .carta
+				flex: 1 0 100%
+				margin-right: 0px
 				
 // Perfil paciente
 .site--interno
