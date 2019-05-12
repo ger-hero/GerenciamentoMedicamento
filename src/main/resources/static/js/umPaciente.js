@@ -98,6 +98,10 @@ function formatInformacao(json){
 
 function formatTabelaRegistros(json){
 	console.log(json);
+	registrosRemedios = $('#historicoRemedios');
+	$.each(json, function(idx, objRegistro){
+		registrosRemedios.append('<tr><td>' + objRegistro.data + '</td>' + '<td>' + objRegistro.manha + '</td>' + '<td>' + objRegistro.tarde  + '</td>' + '<td>' + objRegistro.noite  + '</td></tr>');
+	});
 }
 
 
