@@ -68,6 +68,7 @@ function getMedicamentosPaciente(id) {
 }
 
 function formatInformacao(json){
+	// Painel infos
 	panel = $('.perfil');
 	panel.html(
 				'<div class="informacoes">' +
@@ -106,6 +107,8 @@ function formatInformacao(json){
 		}else{
 			doencaIcone.append('<i class="fas fa-times icone--nagressivo" ></i>');
 		}
+		
+		// Fim painel infos
 	});	
 	//$.each(json.doencas, function(idx, objP){
 	//	alert(objP.doenca);
@@ -121,7 +124,17 @@ function formatTabelaRegistros(json){
 }
 
 function formatBotoesMedicamento(json){
-	console.log(json)
+	console.log(json);
+	aplicacaoMedicamentos = $('.medicacoes');
+	$.each(json, function(idx, objMedicacao){
+		aplicacaoMedicamentos.append('<div class="carta-medicacao">' +
+								   		'<div class="nome">' + objMedicacao.doenca + '</div>' +
+								   		'<div class="remedio">' + objMedicacao.remedio + '</div>' +
+								   		'<div class="botao">' +
+								   			'<a href="#" class="btn btn-red">Medicar</a>' +
+								   		'</div>' + 
+								   '</div>');
+	});	
 }
 
 
