@@ -2,6 +2,13 @@
 
 body
 	font-family: 'Roboto', sans-serif
+	
+//Helpers
+.icone--agressivo
+	color: red
+.icone--nagressivo
+	color: #bbbbbb
+	
 
 .site--interno
 	margin-top: 100px
@@ -57,7 +64,7 @@ body
 	& .perfil
 		display: flex
 		& .linha
-			flex: 0.99
+			flex: 0.20
 			border-top: 1px solid #eeeeee
 			position: relative
 			margin: 100px 15px 0px 15px
@@ -69,20 +76,39 @@ body
 				background-color: white
 				color: #a5a5a5
 				border: 5px solid #FFF
-		& .foto
-			& img
-				border-radius: 9%
 		& .informacoes
-			flex: 1
-			border: 1px solid
-			border-radius: 9px			
-			padding: 20px
+			display: flex
+			border: 1px solid #bbbbbb
+			border-radius: 9px
+			border-bottom-left-radius: 0px
+			border-top-left-radius: 0px
+			width: 100%
+			& .infos
+				width: 100%	
+			& .icone
+				background-color: #f7f7f7
+				border-top-right-radius: 9px
+				color: #343a40
+				margin-bottom: 5px
+				padding: 6px 0px
+				text-align: center
 			& .dados
 				display: flex
+				font-size: 14px
+				margin-bottom: 15px
 				& .nome, & .ala
 					flex: 1
-					text-align: center						
-
+					text-align: center
+			& .doencas
+				display: flex
+				font-size: 14px
+				& .doenca
+					flex: 1
+					text-align: center
+					& .doenca-nome, & .doenca-descricao, & .doenca-agressividade
+						margin-bottom: 10px
+						padding: 0px 5px 0px 5px
+					
 // modal				
 #exampleModal
 	.modal-footer
@@ -93,11 +119,12 @@ body
 .footer-web
 	color: white
 	background-color: #212529
-	bottom: 0
+	//bottom: 0
 	font-size: 12px
+	margin-top: 100px
 	padding-bottom: 10px
 	padding-top: 10px
-	position: absolute
+	//position: absolute
 	width: 100%
 	& a
 		color: white

@@ -2,6 +2,12 @@
 body {
   font-family: "Roboto", sans-serif; }
 
+.icone--agressivo {
+  color: red; }
+
+.icone--nagressivo {
+  color: #bbbbbb; }
+
 .site--interno {
   margin-top: 100px; }
 
@@ -49,7 +55,7 @@ body {
 .site--interno .perfil {
   display: flex; }
   .site--interno .perfil .linha {
-    flex: 0.99;
+    flex: 0.2;
     border-top: 1px solid #eeeeee;
     position: relative;
     margin: 100px 15px 0px 15px; }
@@ -61,18 +67,38 @@ body {
       background-color: white;
       color: #a5a5a5;
       border: 5px solid #FFF; }
-  .site--interno .perfil .foto img {
-    border-radius: 9%; }
   .site--interno .perfil .informacoes {
-    flex: 1;
-    border: 1px solid;
+    display: flex;
+    border: 1px solid #bbbbbb;
     border-radius: 9px;
-    padding: 20px; }
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    width: 100%; }
+    .site--interno .perfil .informacoes .infos {
+      width: 100%; }
+    .site--interno .perfil .informacoes .icone {
+      background-color: #f7f7f7;
+      border-top-right-radius: 9px;
+      color: #343a40;
+      margin-bottom: 5px;
+      padding: 6px 0px;
+      text-align: center; }
     .site--interno .perfil .informacoes .dados {
-      display: flex; }
+      display: flex;
+      font-size: 14px;
+      margin-bottom: 15px; }
       .site--interno .perfil .informacoes .dados .nome, .site--interno .perfil .informacoes .dados .ala {
         flex: 1;
         text-align: center; }
+    .site--interno .perfil .informacoes .doencas {
+      display: flex;
+      font-size: 14px; }
+      .site--interno .perfil .informacoes .doencas .doenca {
+        flex: 1;
+        text-align: center; }
+        .site--interno .perfil .informacoes .doencas .doenca .doenca-nome, .site--interno .perfil .informacoes .doencas .doenca .doenca-descricao, .site--interno .perfil .informacoes .doencas .doenca .doenca-agressividade {
+          margin-bottom: 10px;
+          padding: 0px 5px 0px 5px; }
 
 #exampleModal .modal-footer a {
   width: 100%; }
@@ -80,11 +106,10 @@ body {
 .footer-web {
   color: white;
   background-color: #212529;
-  bottom: 0;
   font-size: 12px;
+  margin-top: 100px;
   padding-bottom: 10px;
   padding-top: 10px;
-  position: absolute;
   width: 100%; }
   .footer-web a {
     color: white;
