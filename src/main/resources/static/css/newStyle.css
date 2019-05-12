@@ -101,8 +101,10 @@ body {
           margin-bottom: 10px;
           padding: 0px 5px 0px 5px; }
 
-#exampleModal .modal-footer a {
-  width: 100%; }
+#exampleModal .modal-dialog {
+  top: 50px; }
+  #exampleModal .modal-dialog .modal-footer a {
+    width: 100%; }
 
 .footer-web {
   color: white;
