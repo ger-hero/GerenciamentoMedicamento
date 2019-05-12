@@ -20,7 +20,7 @@ public class Doenca {
 		return id;
 	}
 
-	public String getDoenca() {
+	public String getNome() {
 		return doenca;
 	}
 

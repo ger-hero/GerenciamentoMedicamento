@@ -1,14 +1,15 @@
 $(document).ready(function () {
         event.preventDefault();
+        console.log(getIdFromUrl());
         listaPacienteId(getIdFromUrl());
         getRegistroPaciente(getIdFromUrl());
+        getMedicamentosPaciente(getIdFromUrl());
 });
 
 
 function getIdFromUrl(){
     var url = window.location.href;
     var id = url.substring(url.lastIndexOf('/') + 1);
-    console.log(id);
     return id;
 }
 
@@ -48,9 +49,25 @@ function getRegistroPaciente(id) {
     });
 }
 
+function getMedicamentosPaciente(id) {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/getMedicamentos/" + id,
+        //data: JSON.stringify(search),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {	
+        	formatBotoesMedicamento(data)
+        },
+        error: function (e) {
+            console.log("ERROR : ", e);
+        }
+    });
+}
+
 function formatInformacao(json){
-	console.log(json.doencas);
-	
 	panel = $('.perfil');
 	panel.html(
 				'<div class="informacoes">' +
@@ -97,11 +114,14 @@ function formatInformacao(json){
 }	
 
 function formatTabelaRegistros(json){
-	console.log(json);
 	registrosRemedios = $('#historicoRemedios');
 	$.each(json, function(idx, objRegistro){
 		registrosRemedios.append('<tr><td>' + objRegistro.data + '</td>' + '<td>' + objRegistro.manha + '</td>' + '<td>' + objRegistro.tarde  + '</td>' + '<td>' + objRegistro.noite  + '</td></tr>');
 	});
+}
+
+function formatBotoesMedicamento(json){
+	console.log(json)
 }
 
 

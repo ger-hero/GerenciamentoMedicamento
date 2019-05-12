@@ -2,6 +2,7 @@ package projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Doenca;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Paciente;
@@ -45,6 +46,11 @@ public final class DadosMemoria {
 	public static List<Doenca> getDoencas() {
 		return doencas;
 	}
+	
+	public static Doenca getDoenca(int id) {
+		List<Doenca> ld = doencas.stream().filter((Doenca d) -> d.getId() == id).collect(Collectors.toList());
+		return ld.get(0);
+	}
 
 	public static List<PacienteDoenca> getPacientedoencas() {
 		return pacienteDoencas;
@@ -52,6 +58,11 @@ public final class DadosMemoria {
 
 	public static List<Remedio> getRemedios() {
 		return remedios;
+	}
+	
+	public static Remedio getRemedio(int id) {
+		List<Remedio> lr = remedios.stream().filter((Remedio r) -> r.getId() == id).collect(Collectors.toList());
+		return lr.get(0);
 	}
 
 	public static List<PacienteHistorico> getPacienteHistorico() {
