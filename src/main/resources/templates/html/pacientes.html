@@ -8,7 +8,7 @@
 		<title>Gerenciamento de Pacientes</title>
 	</head>
 	<body class="site site--interno">
-		<header class="header-web">
+		<header class="header-web d-none d-md-block">
 			<nav class="navbar navbar-expand-md navbar-dark" role="navigation">
 				<div class="container">
 					<a class="navbar-brand" href="/"><i class="fas fa-home"></i></a>
@@ -19,19 +19,31 @@
 				</div>
 			</nav>
 		</header>
-		<div class="container">
-			<div class="panel">
+		<header class="header-mobile d-block d-md-none">
+			<div class="container">
+				<div class="links">
+					<div class="home">
+						<a href="/"><i class="fas fa-home fa-2x"></i></a>
+					</div>
+					<div class="menu">
+						<a href="javascript:void(0)" data-toggle="collapse" data-target="#menu-collapse" class="" aria-expanded="true"><i class="fas fa-bars fa-2x"></i></a>
+					</div>
+				</div>
 			</div>
-			<div class="container" id='divDaTabela'>
-				<table class="table table-striped maxH" id='pacientesTable'>
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Nome</th>
-							<th>ala</th>
-						</tr>
-					</thead>
-				</table>
+			<div id="menu-collapse" class="navbar-collapse hidden-print collapse">
+				<div class="menu">
+					<ul class="nav navbar-nav">
+						<a class="nav-link item" href="/pacientes">Pacientes</a>
+						<a class="nav-link item" href="/remedios">Remedios</a>
+						<a class="nav-link item" href="/doencas">Doenças</a>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div class="container">
+		<input type="text" id="search-criteria"/>
+<input type="button" id="search" value="search"/>
+			<div class="panel">
 			</div>
 		</div>				
 		<!-- Modal -->
