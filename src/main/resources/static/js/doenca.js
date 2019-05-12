@@ -60,7 +60,7 @@ function fire_ajax_submit() {
 function formatData(json){
 	doenca = $('#doencasTable');
 	$.each(json, function(idx, objD){
-		doenca.append('<tr><td>' + objD.id + '</td>' + '<td>' + objD.doenca + '</td>' + '<td>' + objD.exemplo  + '</td>' + '<td>' + objD.agressivo  + '</td>' + '<td>' + objD.idRemedio + '</td></tr>')
+		doenca.append('<tr><td class=" d-none d-md-block">' + objD.id + '</td>' + '<td>' + objD.nome + '</td>' + '<td>' + objD.exemplo  + '</td>' + '<td>' + objD.agressivo  + '</td>' + '<td>' + objD.idRemedio + '</td></tr>')
 //		doenca.append('<tr><td>' + objD.id + '</td>' + '<td>' + objD.nome + '</td>' + '<td>' + objD.exemplo  + '</td>' + '<td>' + objD.agressivo  + '</td>' + '<td>' + objD.idremedio + '</td></tr>')
 //		medicamento.append('<tr><td>' + objM.id + '</td>' + '<td>' + objM.nome + '</td>' + '<td>' + objM.indicacao  + '</td>' + '<td>' + objM.manha  + '</td>' + '<td>' + objM.tarde + '</td>' + '<td>' + objM.noite + '</td></tr>')
 	});
