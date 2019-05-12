@@ -44,6 +44,10 @@ body {
         margin: 0px 15px 0px 15px; }
       .header-mobile #menu-collapse .navbar-nav a {
         color: white; } }
+.site--interno .search {
+  margin: auto;
+  margin-bottom: 45px;
+  width: 50%; }
 .site--interno .panel {
   display: flex;
   flex-wrap: wrap; }
