@@ -3,16 +3,24 @@
  */
 
 $(document).ready(function () {
-//    $("#pesq").click(function (event) {
-        //stop submit the form, we will post it manually.
         event.preventDefault();
-        limparListaRemedios();
+        alteraCorCabecalho();
         fire_ajax_submit();
-//    });
 });
-function limparListaRemedios(){
-	$("#remediosTable tbody tr").remove();
+
+function alteraCorCabecalho(){
+	$(window).scroll(function() {    
+        var scroll = $(window).scrollTop();
+        if (scroll >= 1) {
+            $(".header-web").addClass("follower");
+            $(".follower").css("background-color", "rgba(0,0,0,0.5)");
+        }else{
+            $(".header-web").removeClass("follower");
+            $(".header-web").css("background-color", "#343a40");
+        }
+    });
 }
+
 
 function fire_ajax_submit() {
     var search = {}
