@@ -53,7 +53,8 @@ body {
       white-space: nowrap; }
 
 .site--interno .perfil {
-  display: flex; }
+  display: flex;
+  margin-bottom: 50px; }
   .site--interno .perfil .linha {
     flex: 0.2;
     border-top: 1px solid #eeeeee;
