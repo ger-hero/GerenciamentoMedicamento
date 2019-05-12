@@ -78,6 +78,8 @@ body {
       white-space: nowrap; }
 
 @media (max-width: 767.98px) {
+  .site--interno .search {
+    width: 100%; }
   .site--interno .panel .carta {
     flex: 1 0 100%;
     margin-right: 0px; } }
@@ -130,6 +132,19 @@ body {
           margin-bottom: 10px;
           padding: 0px 5px 0px 5px; }
 
+@media (max-width: 767.98px) {
+  .site--interno .perfil .informacoes {
+    border-bottom-left-radius: 9px;
+    border-top-left-radius: 9px;
+    flex-direction: column; }
+    .site--interno .perfil .informacoes .foto img {
+      border-top-left-radius: 9px;
+      border-top-right-radius: 9px;
+      width: 100%; }
+    .site--interno .perfil .informacoes .doencas {
+      flex-direction: column; }
+      .site--interno .perfil .informacoes .doencas .doenca {
+        margin-bottom: 20px; } }
 #exampleModal .modal-dialog {
   top: 50px; }
   #exampleModal .modal-dialog .modal-footer a {

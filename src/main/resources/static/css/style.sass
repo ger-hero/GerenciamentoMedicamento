@@ -91,6 +91,8 @@ body
 
 @include media-breakpoint-down(sm)
 	.site--interno
+		& .search
+			width: 100%
 		& .panel
 			& .carta
 				flex: 1 0 100%
@@ -146,6 +148,23 @@ body
 					& .doenca-nome, & .doenca-descricao, & .doenca-agressividade
 						margin-bottom: 10px
 						padding: 0px 5px 0px 5px
+
+@include media-breakpoint-down(sm)
+	.site--interno
+		& .perfil
+			& .informacoes
+				border-bottom-left-radius: 9px
+				border-top-left-radius: 9px
+				flex-direction: column
+				& .foto
+					& img
+						border-top-left-radius: 9px
+						border-top-right-radius: 9px
+						width: 100%
+				& .doencas
+					flex-direction: column
+					& .doenca
+						margin-bottom: 20px
 					
 // modal				
 #exampleModal
