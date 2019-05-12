@@ -11,6 +11,10 @@ body
 	color: red
 .icone--nagressivo
 	color: #bbbbbb
+.btn-red
+	background-color: #e50019
+	border-color: #e50019
+	color: white
 	
 // Margin das paginas internas, para nao colidir com header
 .site--interno
@@ -148,7 +152,24 @@ body
 					& .doenca-nome, & .doenca-descricao, & .doenca-agressividade
 						margin-bottom: 10px
 						padding: 0px 5px 0px 5px
-
+	& .medicacoes
+		display: flex
+		margin-bottom: 80px
+		& .carta-medicacao
+			border: 1px solid #bbbbbb
+			border-radius: 9px
+			max-height: 180px
+			flex: 1
+			margin-right: 15px
+			padding: 10px 0px 0px 0px			
+			text-align: center
+			& .nome, & .remedio
+				margin-bottom: 5px
+			& .botao
+				& .btn-red
+					border-top-left-radius: 0px
+					border-top-right-radius: 0px
+					width: 100%
 @include media-breakpoint-down(sm)
 	.site--interno
 		& .perfil

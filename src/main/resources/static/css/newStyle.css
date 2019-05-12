@@ -8,6 +8,11 @@ body {
 .icone--nagressivo {
   color: #bbbbbb; }
 
+.btn-red {
+  background-color: #e50019;
+  border-color: #e50019;
+  color: white; }
+
 .site--interno {
   margin-top: 100px; }
 
@@ -131,6 +136,23 @@ body {
         .site--interno .perfil .informacoes .doencas .doenca .doenca-nome, .site--interno .perfil .informacoes .doencas .doenca .doenca-descricao, .site--interno .perfil .informacoes .doencas .doenca .doenca-agressividade {
           margin-bottom: 10px;
           padding: 0px 5px 0px 5px; }
+.site--interno .medicacoes {
+  display: flex;
+  margin-bottom: 80px; }
+  .site--interno .medicacoes .carta-medicacao {
+    border: 1px solid #bbbbbb;
+    border-radius: 9px;
+    max-height: 180px;
+    flex: 1;
+    margin-right: 15px;
+    padding: 10px 0px 0px 0px;
+    text-align: center; }
+    .site--interno .medicacoes .carta-medicacao .nome, .site--interno .medicacoes .carta-medicacao .remedio {
+      margin-bottom: 5px; }
+    .site--interno .medicacoes .carta-medicacao .botao .btn-red {
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      width: 100%; }
 
 @media (max-width: 767.98px) {
   .site--interno .perfil .informacoes {
