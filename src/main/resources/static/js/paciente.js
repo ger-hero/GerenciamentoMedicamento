@@ -1,7 +1,8 @@
 $(document).ready(function () {
         event.preventDefault();
         listaPacientes();
-        alteraCorCabecalho();   
+        alteraCorCabecalho();
+        buscaPacientePeloNome();
 });
 
 function alteraCorCabecalho(){
@@ -15,6 +16,15 @@ function alteraCorCabecalho(){
             $(".header-web").css("background-color", "#343a40");
         }
     });
+}
+
+function buscaPacientePeloNome(){
+	$("#buscaPaciente").on("keyup", function() {
+		var value = $(this).val().toLowerCase();
+	    $(".panel .carta").filter(function() {
+	    	$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	});
 }
 
 function listaPacientes() {
