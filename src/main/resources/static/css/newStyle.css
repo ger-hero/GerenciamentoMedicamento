@@ -155,18 +155,32 @@ body {
       width: 100%; }
 
 @media (max-width: 767.98px) {
-  .site--interno .perfil .informacoes {
-    border-bottom-left-radius: 9px;
-    border-top-left-radius: 9px;
-    flex-direction: column; }
-    .site--interno .perfil .informacoes .foto img {
+  .site--interno .perfil {
+    margin-botom: 40px; }
+    .site--interno .perfil .informacoes {
+      border-bottom-left-radius: 9px;
       border-top-left-radius: 9px;
-      border-top-right-radius: 9px;
-      width: 100%; }
-    .site--interno .perfil .informacoes .doencas {
       flex-direction: column; }
-      .site--interno .perfil .informacoes .doencas .doenca {
-        margin-bottom: 20px; } }
+      .site--interno .perfil .informacoes .foto img {
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+        width: 100%; }
+      .site--interno .perfil .informacoes .doencas {
+        flex-direction: column; }
+        .site--interno .perfil .informacoes .doencas .doenca {
+          margin-bottom: 20px; }
+  .site--interno .botao-collapse {
+    margin-bottom: 30px; }
+    .site--interno .botao-collapse .btn-red {
+      border-radius: 9px; }
+  .site--interno .medicacoes {
+    flex-direction: column;
+    margin-bottom: 0px; }
+    .site--interno .medicacoes .carta-medicacao {
+      margin-right: 0px;
+      margin-bottom: 30px; }
+  .site--interno #historicoRemedios {
+    margin-top: 40px; } }
 #exampleModal .modal-dialog {
   top: 50px; }
   #exampleModal .modal-dialog .modal-footer a {
