@@ -1,6 +1,7 @@
 $(document).ready(function () {
         event.preventDefault();
         listaPacienteId(getIdFromUrl());
+        getRegistroPaciente(getIdFromUrl());
 });
 
 
@@ -20,8 +21,26 @@ function listaPacienteId(id) {
         dataType: 'json',
         cache: false,
         timeout: 600000,
-        success: function (data) {
+        success: function (data) {	
         	formatInformacao(data)
+        },
+        error: function (e) {
+            console.log("ERROR : ", e);
+        }
+    });
+}
+
+function getRegistroPaciente(id) {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/getRegitroHistorico/" + id,
+        //data: JSON.stringify(search),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+        	formatTabelaRegistros(data)
         },
         error: function (e) {
             console.log("ERROR : ", e);
@@ -31,7 +50,7 @@ function listaPacienteId(id) {
 
 function formatInformacao(json){
 	//alert(json.nome)
-	console.log(json.doencas);
+	//console.log(json.doencas);
 	panel = $('.perfil');
 	//panel-nome = $('.nome');
 	panel.html('<div class="foto"><img src="' + json.imagem + '\">' + '</div>' +
@@ -46,6 +65,9 @@ function formatInformacao(json){
 	//modalFooter.html('<a href="/paciente/' +  json.id + '\"' +  'class="btn btn-success"><i class="fas fa-edit"></i></a>');
 }	
 
+function formatTabelaRegistros(json){
+	console.log(json);
+}
 
 
 

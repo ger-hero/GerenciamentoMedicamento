@@ -2,38 +2,43 @@ package projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model;
 
 public class PacienteHistorico {
 	private int id;
-	private int idPacienteDoenca;
-	private String horario;
+	private int idPaciente;
+	private String data;
+	private String manha;
+	private String tarde;
+	private String noite;
 
-	public PacienteHistorico(int id, int idPacienteDoenca, String horario) {
+	public PacienteHistorico(int id, int idPaciente, String data, String manha, String tarde, String noite) {
 		super();
 		this.id = id;
-		this.idPacienteDoenca = idPacienteDoenca;
-		this.horario = horario;
+		this.idPaciente = idPaciente;
+		this.data = data;
+		this.manha = manha;
+		this.tarde = tarde;
+		this.noite = noite;
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getIdPaciente() {
+		return idPaciente;
 	}
 
-	public int getIdPacienteDoenca() {
-		return idPacienteDoenca;
+	public String getData() {
+		return data;
 	}
 
-	public void setIdPacienteDoenca(int idPacienteDoenca) {
-		this.idPacienteDoenca = idPacienteDoenca;
+	public String getManha() {
+		return manha;
 	}
 
-	public String getHorario() {
-		return horario;
+	public String getTarde() {
+		return tarde;
 	}
 
-	public void setHorario(String horario) {
-		this.horario = horario;
+	public String getNoite() {
+		return noite;
 	}
-
 }

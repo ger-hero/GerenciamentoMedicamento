@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.DadosMemoria;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Paciente;
+import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.PacienteDoenca;
+import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.PacienteHistorico;
 
 @Controller
 @RestController
@@ -31,4 +33,16 @@ public class PacienteController {
 
 		return aux.get(0);
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/getRegitroHistorico/{id}")
+	public List<PacienteHistorico> getRegistro(@PathVariable(value = "id") int id) {
+		List<PacienteHistorico> aux = DadosMemoria.getInstance().getPacienteHistorico()
+				.stream()
+				.filter((PacienteHistorico p) -> p.getIdPaciente() == id)
+				.collect(Collectors.toList());
+
+		return aux;
+	}
+	
 }
