@@ -18,6 +18,7 @@ import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.Pacient
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.PacienteDoenca;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.PacienteDoencaRemedio;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.PacienteHistorico;
+import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.repositories.PacienteHistoricoRepository;
 
 @Controller
 @RestController
@@ -92,6 +93,12 @@ public class PacienteController {
 			return pacienteDoencaRemedios.stream().filter((PacienteDoencaRemedio p) -> p.getTurno().equals("noite") ).collect(Collectors.toList());	
 		}
 		return null;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/insertRegistro/{id}")
+	public void insereRegistro(@PathVariable(value = "id") int id) {
+		new PacienteHistoricoRepository().insereRegistroMedicamento(id, "teste_remedio", "teste_turno");
 	}
 
 }

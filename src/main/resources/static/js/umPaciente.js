@@ -67,6 +67,24 @@ function getMedicamentosPaciente(id) {
     });
 }
 
+function insertRegisto(id) {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/insertRegistro/" + id,
+        //data: JSON.stringify(search),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {	
+        	
+        },
+        error: function (e) {
+            console.log("ERROR : ", e);
+        }
+    });
+}
+
 function formatInformacao(json){
 	// Painel infos
 	panel = $('.perfil');
@@ -136,6 +154,8 @@ function formatBotoesMedicamento(json){
 								   '</div>');
 	});	
 }
+
+
 
 
 

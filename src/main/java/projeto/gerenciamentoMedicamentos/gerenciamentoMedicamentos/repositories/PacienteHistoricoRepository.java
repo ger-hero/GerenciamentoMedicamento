@@ -38,6 +38,18 @@ public class PacienteHistoricoRepository {
 		}
 		return pacienteHistorico;
 	}
+	
+	public void insereRegistroMedicamento(int id, String remedio, String turno) {
+		String sql; 
+		String dia = "12/05/2019";
+		sql = "INSERT INTO aluno (idpaciente, dia, manha, tarde, noite) VALUES ("+id+","+dia+","+remedio+","+ turno +");";
+		int res = Conexao.getInstance().executeUpdate(sql);
+		
+		if (res >= 1)
+			System.out.println("Inserção realizada!");
+		else
+			System.err.println("Inserção NÃO realizada!");
+	}
 
 	public ResultSet retornaPacienteHistorico() {
 		String sql = "SELECT * FROM pacientehistorico ORDER BY id";
