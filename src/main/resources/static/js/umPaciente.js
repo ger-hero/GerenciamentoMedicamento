@@ -77,12 +77,13 @@ function insertRegisto(id) {
         cache: false,
         timeout: 600000,
         success: function (data) {	
-        	alert(id);
+        	   
         },
         error: function (e) {
             console.log("ERROR : ", e);
         }
     });
+    getRegistroPaciente(id);
 }
 
 function formatInformacao(json){

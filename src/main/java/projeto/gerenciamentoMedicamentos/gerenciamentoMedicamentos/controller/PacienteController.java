@@ -99,6 +99,7 @@ public class PacienteController {
 	@RequestMapping(value = "/insertRegistro/{id}")
 	public int insereRegistro(@PathVariable(value = "id") int id) {
 		new PacienteHistoricoRepository().insereRegistroMedicamento(id, "teste_remedio", "manha");
+		DadosMemoria.getInstance().carregaTabelaPacienteHistorico();
 		return 1;
 	}
 

@@ -68,4 +68,8 @@ public final class DadosMemoria {
 	public static List<PacienteHistorico> getPacienteHistorico() {
 		return pacienteHistorico;
 	}
+	
+	public static void carregaTabelaPacienteHistorico() {
+		pacienteHistorico.addAll(new PacienteHistoricoRepository().getListPacienteHistorico());
+	}
 }
