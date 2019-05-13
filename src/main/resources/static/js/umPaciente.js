@@ -67,11 +67,11 @@ function getMedicamentosPaciente(id) {
     });
 }
 
-function insertRegisto(id) {
+function insertRegisto(id, remedio, turno) {
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "/insertRegistro/" + id,
+        url: "/insertRegistro/" + id +"/"+ remedio +"/"+ turno,
         //data: JSON.stringify(search),
         dataType: 'json',
         cache: false,
@@ -147,11 +147,14 @@ function formatBotoesMedicamento(json){
 	console.log(json);
 	aplicacaoMedicamentos = $('.medicacoes');
 	$.each(json, function(idx, objMedicacao){
+		//remedio = "'remediotal'";
+		remedio = "'" + objMedicacao.remedio+"'";
+		turno = "'" + objMedicacao.turno+"'";
 		aplicacaoMedicamentos.append('<div class="carta-medicacao">' +
 								   		'<div class="nome">' + objMedicacao.doenca + '</div>' +
 								   		'<div class="remedio">' + objMedicacao.remedio + '</div>' +
 								   		'<div class="botao">' +
-								   			'<a href="javascript:void(0);" class="btn btn-red"  onclick="insertRegisto(' + objMedicacao.idPaciente + ')">Medicar</a>' +
+								   			'<a href="javascript:void(0);" class="btn btn-red"  onclick="insertRegisto(' + objMedicacao.idPaciente +","+remedio+","+turno+ ')">Medicar</a>' +
 								   		'</div>' + 
 								   '</div>');
 	});	

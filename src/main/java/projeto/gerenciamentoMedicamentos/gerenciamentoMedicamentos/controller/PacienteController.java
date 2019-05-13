@@ -95,10 +95,19 @@ public class PacienteController {
 		return null;
 	}
 	
+//	@ResponseBody
+//	@RequestMapping(value = "/insertRegistro/{id}")
+//	public int insereRegistro(@PathVariable(value = "id") int id) {
+//		new PacienteHistoricoRepository().insereRegistroMedicamento(id, "teste_remedio", "manha");
+//		DadosMemoria.getInstance().carregaTabelaPacienteHistorico();
+//		return 1;
+//	}
+	
 	@ResponseBody
-	@RequestMapping(value = "/insertRegistro/{id}")
-	public int insereRegistro(@PathVariable(value = "id") int id) {
-		new PacienteHistoricoRepository().insereRegistroMedicamento(id, "teste_remedio", "manha");
+	@RequestMapping(value = "/insertRegistro/{id}/{remedio}/{turno}")
+	public int insereRegistro(@PathVariable(value = "id") int id, @PathVariable(value = "remedio") String remedio, @PathVariable(value = "turno") String turno) {
+		
+		new PacienteHistoricoRepository().insereRegistroMedicamento(id, remedio, turno);
 		DadosMemoria.getInstance().carregaTabelaPacienteHistorico();
 		return 1;
 	}
