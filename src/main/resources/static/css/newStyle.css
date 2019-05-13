@@ -13,6 +13,16 @@ body {
   border-color: #e50019;
   color: white; }
 
+.alert-true {
+  top: 120px;
+  transition: all 0.5s ease-in-out 0s; }
+
+.alert-false {
+  position: absolute;
+  z-index: 99999;
+  width: 50%;
+  top: -100px; }
+
 .site--interno {
   margin-top: 100px; }
 
