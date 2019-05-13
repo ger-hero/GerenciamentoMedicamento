@@ -2,6 +2,8 @@ package projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.repositories
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +44,11 @@ public class PacienteHistoricoRepository {
 	public void insereRegistroMedicamento(int id, String remedio, String turno) {
 	
 		int res = 0;
-		String dia = "12/05/2019";
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");  
+		LocalDate date = LocalDate.now();
+		
+		String dia = date.format(formatter);
 		
 		if(turno.equals("manha")) {
 			String sql = "INSERT INTO pacientehistorico (idpaciente, dia, manha, tarde, noite) VALUES ('" +id+ "', '" +dia+ "', '"+remedio+ "', '', '')";

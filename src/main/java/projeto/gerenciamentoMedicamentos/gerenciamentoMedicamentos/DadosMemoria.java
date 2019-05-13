@@ -70,6 +70,7 @@ public final class DadosMemoria {
 	}
 	
 	public static void carregaTabelaPacienteHistorico() {
+		pacienteHistorico.clear();
 		pacienteHistorico.addAll(new PacienteHistoricoRepository().getListPacienteHistorico());
 	}
 }
