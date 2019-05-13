@@ -77,7 +77,7 @@ function insertRegisto(id) {
         cache: false,
         timeout: 600000,
         success: function (data) {	
-        	alert("OK");
+        	alert(id);
         },
         error: function (e) {
             console.log("ERROR : ", e);

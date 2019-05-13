@@ -40,10 +40,23 @@ public class PacienteHistoricoRepository {
 	}
 	
 	public void insereRegistroMedicamento(int id, String remedio, String turno) {
-		String sql; 
+	
+		int res = 0;
 		String dia = "12/05/2019";
-		sql = "INSERT INTO aluno (idpaciente, dia, manha, tarde, noite) VALUES ("+id+","+dia+","+remedio+","+ turno +");";
-		int res = Conexao.getInstance().executeUpdate(sql);
+		
+		if(turno.equals("manha")) {
+			String sql = "INSERT INTO pacientehistorico (idpaciente, dia, manha, tarde, noite) VALUES ('" +id+ "', '" +dia+ "', '"+remedio+ "', '', '')";
+			res = Conexao.getInstance().executeUpdate(sql);
+		}
+		else if(turno.equals("tarde")) {
+			String sql = "INSERT INTO pacientehistorico (idpaciente, dia, manha, tarde, noite) VALUES ('" +id+ "', '" +dia+ "', '', '" +remedio+ "', '')";
+			res = Conexao.getInstance().executeUpdate(sql);
+		} 
+		else if (turno.equals("manha")) {
+			String sql = "INSERT INTO pacientehistorico (idpaciente, dia, manha, tarde, noite) VALUES ('" +id+ "', '" +dia+ "', '', '', " +remedio+ ")";
+			res = Conexao.getInstance().executeUpdate(sql);
+		}
+		
 		
 		if (res >= 1)
 			System.out.println("Inserção realizada!");

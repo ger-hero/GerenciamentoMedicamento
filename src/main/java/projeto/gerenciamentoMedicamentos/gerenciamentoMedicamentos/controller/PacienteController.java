@@ -97,8 +97,9 @@ public class PacienteController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/insertRegistro/{id}")
-	public void insereRegistro(@PathVariable(value = "id") int id) {
-		new PacienteHistoricoRepository().insereRegistroMedicamento(id, "teste_remedio", "teste_turno");
+	public int insereRegistro(@PathVariable(value = "id") int id) {
+		new PacienteHistoricoRepository().insereRegistroMedicamento(id, "teste_remedio", "manha");
+		return 1;
 	}
 
 }
