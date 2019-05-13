@@ -77,7 +77,7 @@ function insertRegisto(id) {
         cache: false,
         timeout: 600000,
         success: function (data) {	
-        	
+        	alert("OK");
         },
         error: function (e) {
             console.log("ERROR : ", e);
@@ -149,7 +149,7 @@ function formatBotoesMedicamento(json){
 								   		'<div class="nome">' + objMedicacao.doenca + '</div>' +
 								   		'<div class="remedio">' + objMedicacao.remedio + '</div>' +
 								   		'<div class="botao">' +
-								   			'<a href="#" class="btn btn-red">Medicar</a>' +
+								   			'<a href="javascript:void(0);" class="btn btn-red"  onclick="insertRegisto(' + objMedicacao.idPaciente + ')">Medicar</a>' +
 								   		'</div>' + 
 								   '</div>');
 	});	
