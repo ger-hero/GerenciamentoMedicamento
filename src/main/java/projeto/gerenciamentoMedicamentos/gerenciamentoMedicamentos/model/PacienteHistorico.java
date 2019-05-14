@@ -3,16 +3,18 @@ package projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model;
 public class PacienteHistorico {
 	private int id;
 	private int idPaciente;
-	private String data;
+	private String remedio;
+	private String dia;
 	private String manha;
 	private String tarde;
 	private String noite;
 
-	public PacienteHistorico(int id, int idPaciente, String data, String manha, String tarde, String noite) {
+	public PacienteHistorico(int id, int idPaciente, String remedio, String dia, String manha, String tarde, String noite) {
 		super();
 		this.id = id;
 		this.idPaciente = idPaciente;
-		this.data = data;
+		this.remedio = remedio;
+		this.dia = dia;
 		this.manha = manha;
 		this.tarde = tarde;
 		this.noite = noite;
@@ -26,8 +28,12 @@ public class PacienteHistorico {
 		return idPaciente;
 	}
 
-	public String getData() {
-		return data;
+	public String getRemedio() {
+		return remedio;
+	}
+
+	public String getDia() {
+		return dia;
 	}
 
 	public String getManha() {
