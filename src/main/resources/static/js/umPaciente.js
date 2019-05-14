@@ -77,13 +77,14 @@ function insertRegisto(id, remedio, turno) {
         cache: false,
         timeout: 600000,
         success: function (data) {	
-        	   
+        	getRegistroPaciente(id);
+            //getMedicamentosPaciente(id);
         },
         error: function (e) {
             console.log("ERROR : ", e);
         }
     });
-    getRegistroPaciente(id);
+    
 }
 
 function formatInformacao(json){
@@ -137,7 +138,7 @@ function formatInformacao(json){
 
 function formatTabelaRegistros(json){
 	registrosRemedios = $('#historicoRemedios');
-	//$("#historicoRemedios tr").remove();
+	limpaTabela();
 	$.each(json, function(idx, objRegistro){
 		registrosRemedios.append('<tr><td>' + objRegistro.data + '</td>' + '<td>' + objRegistro.manha + '</td>' + '<td>' + objRegistro.tarde  + '</td>' + '<td>' + objRegistro.noite  + '</td></tr>');
 	});
@@ -158,6 +159,10 @@ function formatBotoesMedicamento(json){
 								   		'</div>' + 
 								   '</div>');
 	});	
+}
+
+function limpaTabela(){
+	$("#historicoRemedios").find("tr:gt(0)").remove()
 }
 
 

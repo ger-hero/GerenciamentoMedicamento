@@ -58,8 +58,8 @@ public class PacienteHistoricoRepository {
 			String sql = "INSERT INTO pacientehistorico (idpaciente, dia, manha, tarde, noite) VALUES ('" +id+ "', '" +dia+ "', '', '" +remedio+ "', '')";
 			res = Conexao.getInstance().executeUpdate(sql);
 		} 
-		else if (turno.equals("manha")) {
-			String sql = "INSERT INTO pacientehistorico (idpaciente, dia, manha, tarde, noite) VALUES ('" +id+ "', '" +dia+ "', '', '', " +remedio+ ")";
+		else if (turno.equals("noite")) {	
+			String sql = "INSERT INTO pacientehistorico (idpaciente, dia, manha, tarde, noite) VALUES ('" +id+ "', '" +dia+ "', '', '', '" +remedio+ "')";
 			res = Conexao.getInstance().executeUpdate(sql);
 		}
 		
