@@ -29,6 +29,9 @@
 .footer-web .springboot-icon :hover {
   color: green;
 }
+.footer-web .fas-icon :hover {
+  color: #6495ed;
+}
 
 .footer-mobile {
   color: white;
@@ -60,6 +63,9 @@
 }
 .footer-mobile .springboot-icon :hover {
   color: green;
+}
+.footer-mobile .fas-icon :hover {
+  color: #6495ed;
 }
 
 @media (max-width: 767.98px) {
