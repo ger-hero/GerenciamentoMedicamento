@@ -47,6 +47,10 @@ public final class DadosMemoria {
 		return doencas;
 	}
 	
+	public List<PacienteDoenca> getDoencasIdPaciente(int id){
+		return pacienteDoencas.stream().filter((PacienteDoenca p) -> p.getId() == id).collect(Collectors.toList());
+	}
+	
 	public static Doenca getDoenca(int id) {
 		List<Doenca> ld = doencas.stream().filter((Doenca d) -> d.getId() == id).collect(Collectors.toList());
 		return ld.get(0);

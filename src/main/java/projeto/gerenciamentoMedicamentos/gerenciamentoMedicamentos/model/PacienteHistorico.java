@@ -5,19 +5,19 @@ public class PacienteHistorico {
 	private int idPaciente;
 	private String remedio;
 	private String dia;
-	private String manha;
-	private String tarde;
-	private String noite;
+	private String horarioManha;
+	private String horarioTarde;
+	private String horarioNoite;
 
-	public PacienteHistorico(int id, int idPaciente, String remedio, String dia, String manha, String tarde, String noite) {
+	public PacienteHistorico(int id, int idPaciente, String remedio, String dia, String horarioManha, String horarioTarde, String horarioNoite) {
 		super();
 		this.id = id;
 		this.idPaciente = idPaciente;
 		this.remedio = remedio;
 		this.dia = dia;
-		this.manha = manha;
-		this.tarde = tarde;
-		this.noite = noite;
+		this.horarioManha = horarioManha;
+		this.horarioTarde = horarioTarde;
+		this.horarioNoite = horarioNoite;
 	}
 
 	public int getId() {
@@ -36,15 +36,16 @@ public class PacienteHistorico {
 		return dia;
 	}
 
-	public String getManha() {
-		return manha;
+	public String getHorarioManha() {
+		return horarioManha;
 	}
 
-	public String getTarde() {
-		return tarde;
+	public String getHorarioTarde() {
+		return horarioTarde;
 	}
 
-	public String getNoite() {
-		return noite;
+	public String getHorarioNoite() {
+		return horarioNoite;
 	}
+
 }

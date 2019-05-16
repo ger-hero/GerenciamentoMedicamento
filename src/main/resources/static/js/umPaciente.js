@@ -1,11 +1,11 @@
 $(document).ready(function () {
         event.preventDefault();
-        console.log(getIdFromUrl());
+        //console.log(getIdFromUrl());
         listaPacienteId(getIdFromUrl());
-        getRegistroPaciente(getIdFromUrl());
         getMedicamentosPaciente(getIdFromUrl());
+        getRegistroPaciente(getIdFromUrl());
+        
 });
-
 
 function getIdFromUrl(){
     var url = window.location.href;
@@ -31,24 +31,6 @@ function listaPacienteId(id) {
     });
 }
 
-function getRegistroPaciente(id) {
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "/getRegitroHistorico/" + id,
-        //data: JSON.stringify(search),
-        dataType: 'json',
-        cache: false,
-        timeout: 600000,
-        success: function (data) {
-        	formatTabelaRegistros(data)
-        },
-        error: function (e) {
-            console.log("ERROR : ", e);
-        }
-    });
-}
-
 function getMedicamentosPaciente(id) {
     $.ajax({
         type: "GET",
@@ -67,7 +49,26 @@ function getMedicamentosPaciente(id) {
     });
 }
 
+function getRegistroPaciente(id) {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/getRegitroHistorico/" + id,
+        //data: JSON.stringify(search),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+        	formatTabelaRegistros(data)
+        },
+        error: function (e) {
+            console.log("ERROR : ", e);
+        }
+    });
+}
+
 function insertRegisto(id, remedio, turno) {
+	console.log(turno)
     $.ajax({
         type: "GET",
         contentType: "application/json",
@@ -136,14 +137,6 @@ function formatInformacao(json){
 	//modalFooter.html('<a href="/paciente/' +  json.id + '\"' +  'class="btn btn-success"><i class="fas fa-edit"></i></a>');
 }	
 
-function formatTabelaRegistros(json){
-	registrosRemedios = $('#historicoRemedios');
-	limpaTabela();
-	$.each(json, function(idx, objRegistro){
-		registrosRemedios.append('<tr><td>' + objRegistro.data + '</td>' + '<td>' + objRegistro.manha + '</td>' + '<td>' + objRegistro.tarde  + '</td>' + '<td>' + objRegistro.noite  + '</td></tr>');
-	});
-}
-
 function formatBotoesMedicamento(json){
 	console.log(json);
 	aplicacaoMedicamentos = $('.medicacoes');
@@ -163,6 +156,15 @@ function formatBotoesMedicamento(json){
 
 function limpaTabela(){
 	$("#historicoRemedios").find("tr:gt(0)").remove()
+}
+
+function formatTabelaRegistros(json){
+	console.log(json);
+	registrosRemedios = $('#historicoRemedios');
+	limpaTabela();
+	$.each(json, function(idx, objRegistro){
+		registrosRemedios.append('<tr><td>' + objRegistro.remedio + '</td>' +'<td>' + objRegistro.dia + '</td>' +'<td>' + objRegistro.horarioManha + '</td>' + '<td>' + objRegistro.horarioTarde  + '</td>' + '<td>' + objRegistro.horarioNoite  + '</td></tr>');
+	});
 }
 
 
