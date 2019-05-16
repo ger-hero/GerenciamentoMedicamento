@@ -51,28 +51,32 @@ public class PacienteController {
 	@ResponseBody
 	@RequestMapping(value = "/getMedicamentos/{id}")
 	public List<PacienteDoencaRemedio> getMedicamentos(@PathVariable(value = "id") int id) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		LocalDate date = LocalDate.now();
+		String dia = date.format(formatter);
+
 		List<PacienteDoencaRemedio> pacienteDoencaRemedios = new ArrayList<PacienteDoencaRemedio>();
+
 		for (PacienteDoenca p : DadosMemoria.getPacientedoencas()) {
 			if (p.getIdPaciente() == id) {
 				int idRemdio = DadosMemoria.getDoenca(p.getIdDoenca()).getIdRemedio();
+				
 				if (DadosMemoria.getRemedio(idRemdio).isManha()) {
-					if (consulta("manha", DadosMemoria.getRemedio(idRemdio).getNome())) {
+					if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "manha")) {
 						pacienteDoencaRemedios.add(new PacienteDoencaRemedio(p.getIdPaciente(),
 								DadosMemoria.getDoenca(p.getIdDoenca()).getNome(),
 								DadosMemoria.getRemedio(idRemdio).getNome(), "manha"));
 					}
-
 				}
 				if (DadosMemoria.getRemedio(idRemdio).isTarde()) {
-					if (consulta("tarde", DadosMemoria.getRemedio(idRemdio).getNome())) {
+					if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "tarde")) {	
 						pacienteDoencaRemedios.add(new PacienteDoencaRemedio(p.getIdPaciente(),
 								DadosMemoria.getDoenca(p.getIdDoenca()).getNome(),
 								DadosMemoria.getRemedio(idRemdio).getNome(), "tarde"));
 					}
-
 				}
 				if (DadosMemoria.getRemedio(idRemdio).isNoite()) {
-					if (consulta("noite", DadosMemoria.getRemedio(idRemdio).getNome())) {
+					if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "noite")) {
 						pacienteDoencaRemedios.add(new PacienteDoencaRemedio(p.getIdPaciente(),
 								DadosMemoria.getDoenca(p.getIdDoenca()).getNome(),
 								DadosMemoria.getRemedio(idRemdio).getNome(), "noite"));
@@ -82,8 +86,8 @@ public class PacienteController {
 		}
 		return getListTurno(pacienteDoencaRemedios);
 	}
-	
-	private List<PacienteDoencaRemedio> getListTurno(List<PacienteDoencaRemedio> pacienteDoencaRemedios){
+
+	private List<PacienteDoencaRemedio> getListTurno(List<PacienteDoencaRemedio> pacienteDoencaRemedios) {
 		Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("Brazil/East"));
 		int hora = calendar.get(Calendar.HOUR_OF_DAY);
 
@@ -100,37 +104,42 @@ public class PacienteController {
 		return null;
 	}
 
-	private boolean consulta(String turno, String remedio) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		LocalDate date = LocalDate.now();
-		String dia = date.format(formatter);
-
-		if (turno.equals("manha")) {
-			for (PacienteHistorico p : DadosMemoria.getPacienteHistorico()) {
-				if (p.getRemedio().equals(remedio) && p.getDia().equals(dia) && p.getManha().equals(remedio))
-					return true;
-			}
-		} else if (turno.equals("tarde")) {
-			for (PacienteHistorico p : DadosMemoria.getPacienteHistorico()) {
-				if (p.getRemedio().equals(remedio) && p.getDia().equals(dia) && p.getTarde().equals(remedio))
-					return true;
-			}
-		} else if (turno.equals("noite")) {
-			for (PacienteHistorico p : DadosMemoria.getPacienteHistorico()) {
-				if (p.getRemedio().equals(remedio) && p.getDia().equals(dia) && p.getNoite().equals(remedio))
-					return true;
-			}
-		}
-
-		return false;
-	}
-
 	@ResponseBody
 	@RequestMapping(value = "/insertRegistro/{id}/{remedio}/{turno}")
-	public int insereRegistro(@PathVariable(value = "id") int id, @PathVariable(value = "remedio") String remedio, @PathVariable(value = "turno") String turno) {
+	public int insereRegistro(@PathVariable(value = "id") int id, @PathVariable(value = "remedio") String remedio,
+			@PathVariable(value = "turno") String turno) {
 		new PacienteHistoricoRepository().insereRegistroMedicamento(id, remedio, turno);
 		DadosMemoria.carregaTabelaPacienteHistorico();
 		return 1;
 	}
 
+	private boolean consultaRegistro(int id, String remedio, String dia, String turno) {
+		if(DadosMemoria.getPacienteHistorico().isEmpty())
+			return false;
+		
+		for(PacienteHistorico p : DadosMemoria.getPacienteHistorico()) {
+			if(id == p.getIdPaciente()) {
+				if(remedio.equals(p.getRemedio())) {
+					if(dia.equals(p.getDia())) {
+						if(turno.equals("manha")) {
+							if(p.getHorarioManha().equals("-")) {
+								return false;
+							}
+						}
+						else if(turno.equals("tarde")) {
+							if (p.getHorarioTarde().equals("-")) {
+								return false;
+							}
+						}
+						else if(turno.equals("noite")) {
+							if (p.getHorarioNoite().equals("-")) {
+								return false;
+							}
+						}
+					}
+				}
+			}
+		}
+		return true;
+	}
 }
