@@ -6,6 +6,8 @@
 body
 	font-family: 'Roboto', sans-serif
 
+
+//Header home
 .header-top
 	background-color: #fff
 	box-shadow: 0 -3px 9px #000
@@ -127,6 +129,16 @@ body
 	z-index: 99999
 	width: 50%
 	top: -100px
+.border-fixed
+	color: rgb(41, 180, 115)
+	font-size: 19px
+	font-weight: bold
+	min-height: 59px
+	padding: 13px 15px
+	border-bottom: 5px solid #29b473
+	&:hover
+		color: rgb(41, 180, 115)
+		text-decoration: none	
 	
 // Margin das paginas internas, para nao colidir com header
 .site--interno
@@ -138,14 +150,23 @@ body
 
 // Header
 .header-web
-	background-color: #343a40
+	background-color: #fff
+	box-shadow: 0 -3px 9px #000
 	position: fixed
 	top: 0
 	transition: all 200ms linear
 	width: 100%
 	z-index: 9999
-	& a
-		color: white
+	& .navbar
+		padding: 0px
+		& .nav-link
+			color: rgb(41, 180, 115)
+			font-size: 19px
+			font-weight: bold
+			min-height: 59px
+			padding: 13px 15px
+			&:hover
+				border-bottom: 5px solid #29b473
 		
 @include media-breakpoint-down(sm)
 	.header-mobile

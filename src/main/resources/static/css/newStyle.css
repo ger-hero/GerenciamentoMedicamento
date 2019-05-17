@@ -117,6 +117,17 @@ body {
   width: 50%;
   top: -100px; }
 
+.border-fixed {
+  color: #29b473;
+  font-size: 19px;
+  font-weight: bold;
+  min-height: 59px;
+  padding: 13px 15px;
+  border-bottom: 5px solid #29b473; }
+  .border-fixed:hover {
+    color: #29b473;
+    text-decoration: none; }
+
 .site--interno {
   margin-top: 100px; }
 
@@ -124,14 +135,23 @@ body {
   .site--interno {
     margin-top: 0px; } }
 .header-web {
-  background-color: #343a40;
+  background-color: #fff;
+  box-shadow: 0 -3px 9px #000;
   position: fixed;
   top: 0;
   transition: all 200ms linear;
   width: 100%;
   z-index: 9999; }
-  .header-web a {
-    color: white; }
+  .header-web .navbar {
+    padding: 0px; }
+    .header-web .navbar .nav-link {
+      color: #29b473;
+      font-size: 19px;
+      font-weight: bold;
+      min-height: 59px;
+      padding: 13px 15px; }
+      .header-web .navbar .nav-link:hover {
+        border-bottom: 5px solid #29b473; }
 
 @media (max-width: 767.98px) {
   .header-mobile {
