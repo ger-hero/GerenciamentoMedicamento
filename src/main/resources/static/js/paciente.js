@@ -1,9 +1,16 @@
 $(document).ready(function () {
+		bordaFixaCabecalho();
         event.preventDefault();
         listaPacientes();
-        alteraCorCabecalho();
+       // alteraCorCabecalho();
         buscaPacientePeloNome();
 });
+
+function bordaFixaCabecalho(){
+	$('.header-web .navbar .nav-pacientes').removeClass("nav-link");
+	$('.header-web .navbar .nav-pacientes').addClass("border-fixed");
+}
+
 
 function alteraCorCabecalho(){
 	$(window).scroll(function() {    
