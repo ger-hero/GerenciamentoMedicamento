@@ -4,9 +4,15 @@
 
 $(document).ready(function () {
         event.preventDefault();
-        alteraCorCabecalho();
+        bordaFixaCabecalho();
+        // alteraCorCabecalho();
         fire_ajax_submit();
 });
+
+function bordaFixaCabecalho(){
+	$('.header-web .navbar .nav-remedios').removeClass("nav-link");
+	$('.header-web .navbar .nav-remedios').addClass("border-fixed");
+}
 
 function alteraCorCabecalho(){
 	$(window).scroll(function() {    

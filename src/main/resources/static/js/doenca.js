@@ -5,8 +5,14 @@
 $(document).ready(function () {
         event.preventDefault();
         fire_ajax_submit();
-        alteraCorCabecalho();
+        bordaFixaCabecalho();
+        //alteraCorCabecalho();
 });
+
+function bordaFixaCabecalho(){
+	$('.header-web .navbar .nav-doencas').removeClass("nav-link");
+	$('.header-web .navbar .nav-doencas').addClass("border-fixed");
+}
 
 function alteraCorCabecalho(){
     $(window).scroll(function() {    
