@@ -57,34 +57,35 @@ public class PacienteController {
 
 		List<PacienteDoencaRemedio> pacienteDoencaRemedios = new ArrayList<PacienteDoencaRemedio>();
 
+		// ID ID_PACIENTE ID_REMEDIO
 		for (PacienteDoenca p : DadosMemoria.getPacientedoencas()) {
 			if (p.getIdPaciente() == id) {
 				int idRemdio = DadosMemoria.getDoenca(p.getIdDoenca()).getIdRemedio();
-				
+
 				if (DadosMemoria.getRemedio(idRemdio).isManha()) {
-					//if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "manha")) {
+					if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "manha")) {
 						pacienteDoencaRemedios.add(new PacienteDoencaRemedio(p.getIdPaciente(),
 								DadosMemoria.getDoenca(p.getIdDoenca()).getNome(),
 								DadosMemoria.getRemedio(idRemdio).getNome(), "manha"));
-					//}
+					}
 				}
 				if (DadosMemoria.getRemedio(idRemdio).isTarde()) {
-					//if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "tarde")) {	
+					if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "tarde")) {
 						pacienteDoencaRemedios.add(new PacienteDoencaRemedio(p.getIdPaciente(),
 								DadosMemoria.getDoenca(p.getIdDoenca()).getNome(),
 								DadosMemoria.getRemedio(idRemdio).getNome(), "tarde"));
-					//}
+					}
 				}
 				if (DadosMemoria.getRemedio(idRemdio).isNoite()) {
-					//if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "noite")) {
+					if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "noite")) {
 						pacienteDoencaRemedios.add(new PacienteDoencaRemedio(p.getIdPaciente(),
 								DadosMemoria.getDoenca(p.getIdDoenca()).getNome(),
 								DadosMemoria.getRemedio(idRemdio).getNome(), "noite"));
-					//}
+					}
 				}
 			}
 		}
-		
+
 		// Separa os medicamentos do turno referente a hora atual
 		return getListTurno(pacienteDoencaRemedios);
 	}
@@ -108,39 +109,74 @@ public class PacienteController {
 
 	@ResponseBody
 	@RequestMapping(value = "/insertRegistro/{id}/{remedio}/{turno}")
-	public int insereRegistro(@PathVariable(value = "id") int id, @PathVariable(value = "remedio") String remedio, @PathVariable(value = "turno") String turno) {
+	public int insereRegistro(@PathVariable(value = "id") int id, @PathVariable(value = "remedio") String remedio,
+			@PathVariable(value = "turno") String turno) {
 		new PacienteHistoricoRepository().insereRegistroMedicamento(id, remedio, turno);
 		DadosMemoria.carregaTabelaPacienteHistorico();
 		return 1;
 	}
 
 	private boolean consultaRegistro(int id, String remedio, String dia, String turno) {
-		if(DadosMemoria.getPacienteHistorico().isEmpty())
+		if (DadosMemoria.getPacienteHistorico().isEmpty())
 			return false;
-		
-		for(PacienteHistorico p : DadosMemoria.getPacienteHistorico()) {
-			if(id == p.getIdPaciente()) {
-				if(remedio.equals(p.getRemedio())) {
-					if(dia.equals(p.getDia())) {
-						if(turno.equals("manha")) {
-							if(p.getHorarioManha().equals("-")) {
-								return false;
+
+		for (PacienteHistorico p : DadosMemoria.getPacienteHistorico()) {
+			if (p.getIdPaciente() == id) {
+				if (p.getDia().equals(dia)) {
+					if (p.getRemedio().equals(remedio)) {
+						if (turno.equals("manha")) {
+							if (!p.getHorarioManha().equals("-")) {
+								return true;
 							}
 						}
-						else if(turno.equals("tarde")) {
-							if (p.getHorarioTarde().equals("-")) {
-								return false;
-							}
-						}
-						else if(turno.equals("noite")) {
-							if (p.getHorarioNoite().equals("-")) {
-								return false;
-							}
-						}
+
 					}
 				}
 			}
 		}
-		return true;
+		return false;
+
+//		for (PacienteHistorico p : DadosMemoria.getPacienteHistorico()) {
+//			if (id == p.getIdPaciente()) {
+//
+//				if (remedio.equals(p.getRemedio())) {
+//
+//					if (dia.equals(p.getDia())) {
+//
+//						if (turno.equals("manha")) {
+//							// System.out.println("Turno: " + turno.equals("manha"));
+//							// System.out.println("Espaco1: " +p.getHorarioManha().equals("-")+ "
+//							// "+p.getHorarioManha());
+//							if (p.getHorarioManha().equals("-")) {
+//								// System.out.println("Espaco: " +p.getHorarioManha().equals("-"));
+//								return false;
+//							} else {
+//								return true;
+//							}
+//						}
+//
+//						else if (turno.equals("tarde")) {
+//							if (p.getHorarioTarde().equals("-")) {
+//								System.out.println("Tarde: " + p.getHorarioTarde().equals("-"));
+//								return false;
+//							} else {
+//								return true;
+//							}
+//						}
+//
+//						else if (turno.equals("noite")) {
+//							if (p.getHorarioNoite().equals("-")) {
+//								System.out.println("Noite: " + p.getHorarioNoite().equals("-"));
+//								return false;
+//							} else {
+//								return true;
+//							}
+//						}
+//
+//					}
+//				}
+//			}
+//		}
+//		return true;
 	}
 }

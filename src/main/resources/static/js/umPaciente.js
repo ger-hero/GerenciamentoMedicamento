@@ -79,7 +79,7 @@ function insertRegisto(id, remedio, turno) {
         timeout: 600000,
         success: function (data) {	
         	getRegistroPaciente(id);
-            //getMedicamentosPaciente(id);
+            getMedicamentosPaciente(id);
         },
         error: function (e) {
             console.log("ERROR : ", e);
