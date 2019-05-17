@@ -62,28 +62,30 @@ public class PacienteController {
 				int idRemdio = DadosMemoria.getDoenca(p.getIdDoenca()).getIdRemedio();
 				
 				if (DadosMemoria.getRemedio(idRemdio).isManha()) {
-					if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "manha")) {
+					//if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "manha")) {
 						pacienteDoencaRemedios.add(new PacienteDoencaRemedio(p.getIdPaciente(),
 								DadosMemoria.getDoenca(p.getIdDoenca()).getNome(),
 								DadosMemoria.getRemedio(idRemdio).getNome(), "manha"));
-					}
+					//}
 				}
 				if (DadosMemoria.getRemedio(idRemdio).isTarde()) {
-					if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "tarde")) {	
+					//if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "tarde")) {	
 						pacienteDoencaRemedios.add(new PacienteDoencaRemedio(p.getIdPaciente(),
 								DadosMemoria.getDoenca(p.getIdDoenca()).getNome(),
 								DadosMemoria.getRemedio(idRemdio).getNome(), "tarde"));
-					}
+					//}
 				}
 				if (DadosMemoria.getRemedio(idRemdio).isNoite()) {
-					if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "noite")) {
+					//if (!consultaRegistro(id, DadosMemoria.getRemedio(idRemdio).getNome(), dia, "noite")) {
 						pacienteDoencaRemedios.add(new PacienteDoencaRemedio(p.getIdPaciente(),
 								DadosMemoria.getDoenca(p.getIdDoenca()).getNome(),
 								DadosMemoria.getRemedio(idRemdio).getNome(), "noite"));
-					}
+					//}
 				}
 			}
 		}
+		
+		// Separa os medicamentos do turno referente a hora atual
 		return getListTurno(pacienteDoencaRemedios);
 	}
 
@@ -106,8 +108,7 @@ public class PacienteController {
 
 	@ResponseBody
 	@RequestMapping(value = "/insertRegistro/{id}/{remedio}/{turno}")
-	public int insereRegistro(@PathVariable(value = "id") int id, @PathVariable(value = "remedio") String remedio,
-			@PathVariable(value = "turno") String turno) {
+	public int insereRegistro(@PathVariable(value = "id") int id, @PathVariable(value = "remedio") String remedio, @PathVariable(value = "turno") String turno) {
 		new PacienteHistoricoRepository().insereRegistroMedicamento(id, remedio, turno);
 		DadosMemoria.carregaTabelaPacienteHistorico();
 		return 1;

@@ -59,7 +59,7 @@ public class PacienteHistoricoRepository {
 
 		int res = 0;
 
-		if (!verificaSeExiste(id, remedio)) {
+		if (!verificaSeExiste(id, remedio, dia)) {
 			res = primeiraInsercao(id, remedio, dia, turno, horaFormatada);
 		} else {
 			res = executaUpdate(dia, remedio, turno, horaFormatada);
@@ -67,11 +67,13 @@ public class PacienteHistoricoRepository {
 		printResposta(res);
 	}
 
-	private boolean verificaSeExiste(int id, String remedio) {
+	private boolean verificaSeExiste(int id, String remedio, String dia) {
 		for (PacienteHistorico p : DadosMemoria.getPacienteHistorico()) {
 			if (p.getIdPaciente() == id) {
-				if (p.getRemedio().equals(remedio)) {
-					return true;
+				if(p.getDia().equals(dia)) {
+					if (p.getRemedio().equals(remedio)) {
+						return true;
+					}
 				}
 			}
 		}
@@ -81,16 +83,13 @@ public class PacienteHistoricoRepository {
 	private int primeiraInsercao(int id, String remedio, String dia, String turno, String horaFormatada) {
 		int res = 0;
 		if (turno.equals("manha")) {
-			String sql = "INSERT INTO pacientehistorico (idpaciente, remedio, dia, manha, tarde, noite) VALUES ('" + id
-					+ "', '" + remedio + "', '" + dia + "', '" + horaFormatada + "', '-', '-')";
+			String sql = "INSERT INTO pacientehistorico (idpaciente, remedio, dia, manha, tarde, noite) VALUES ('" + id+ "', '" + remedio + "', '" + dia + "', '" + horaFormatada + "', '-', '-')";
 			res = Conexao.getInstance().executeUpdate(sql);
 		} else if (turno.equals("tarde")) {
-			String sql = "INSERT INTO pacientehistorico (idpaciente, remedio, dia, manha, tarde, noite) VALUES ('" + id
-					+ "', '" + remedio + "', '" + dia + "', '-', '" + horaFormatada + "', '-')";
+			String sql = "INSERT INTO pacientehistorico (idpaciente, remedio, dia, manha, tarde, noite) VALUES ('" + id+ "', '" + remedio + "', '" + dia + "', '-', '" + horaFormatada + "', '-')";
 			res = Conexao.getInstance().executeUpdate(sql);
 		} else if (turno.equals("noite")) {
-			String sql = "INSERT INTO pacientehistorico (idpaciente, remedio, dia, manha, tarde, noite) VALUES ('" + id
-					+ "', '" + remedio + "', '" + dia + "', '-', '-', '" + horaFormatada + "')";
+			String sql = "INSERT INTO pacientehistorico (idpaciente, remedio, dia, manha, tarde, noite) VALUES ('" + id+ "', '" + remedio + "', '" + dia + "', '-', '-', '" + horaFormatada + "')";
 			res = Conexao.getInstance().executeUpdate(sql);
 		}
 		return res;
@@ -105,8 +104,7 @@ public class PacienteHistoricoRepository {
 	}
 
 	private int executaUpdate(String dia, String remedio, String turno, String horaFormatada) {
-		String sql = "UPDATE pacientehistorico SET " + turno + " = '" + horaFormatada + "' WHERE dia = '" + dia + "'"
-				+ " AND remedio " + " = '" + remedio + "'";
+		String sql = "UPDATE pacientehistorico SET " + turno + " = '" + horaFormatada + "' WHERE dia = '" + dia + "'"+ " AND remedio " + " = '" + remedio + "'";
 		return Conexao.getInstance().executeUpdate(sql);
 	}
 
