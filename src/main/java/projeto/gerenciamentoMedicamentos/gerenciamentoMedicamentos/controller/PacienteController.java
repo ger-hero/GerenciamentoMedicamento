@@ -86,7 +86,6 @@ public class PacienteController {
 			}
 		}
 
-		// Separa os medicamentos do turno referente a hora atual
 		return getListTurno(pacienteDoencaRemedios);
 	}
 
@@ -128,14 +127,12 @@ public class PacienteController {
 							if (!p.getHorarioManha().equals("-")) {
 								return true;
 							}
-						}
-						else if (turno.equals("tarde")) {
-							if(!p.getHorarioTarde().equals("-")) {
+						} else if (turno.equals("tarde")) {
+							if (!p.getHorarioTarde().equals("-")) {
 								return true;
 							}
-						}
-						else if(turno.equals("noite")) {
-							if(!p.getHorarioNoite().equals("-")) {
+						} else if (turno.equals("noite")) {
+							if (!p.getHorarioNoite().equals("-")) {
 								return true;
 							}
 						}

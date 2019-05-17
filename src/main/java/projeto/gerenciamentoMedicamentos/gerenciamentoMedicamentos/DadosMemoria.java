@@ -29,9 +29,8 @@ public final class DadosMemoria {
 		doencas.addAll(new DoencaRepository().getListDoenca());
 		pacientes.addAll(new PacienteRepository().getListPaciente());
 		remedios.addAll(new RemedioRepository().getListRemedios());
-		//pacienteHistorico.addAll(new PacienteHistoricoRepository().getListPacienteHistorico());
-		pacienteHistorico.addAll(new PacienteHistoricoRepository().getListPacienteHistoricoInner());
-	} 
+		pacienteHistorico.addAll(new PacienteHistoricoRepository().getListPacienteHistorico());
+	}
 
 	public static synchronized DadosMemoria getInstance() {
 		if (instance == null) {
@@ -47,11 +46,7 @@ public final class DadosMemoria {
 	public static List<Doenca> getDoencas() {
 		return doencas;
 	}
-	
-	public List<PacienteDoenca> getDoencasIdPaciente(int id){
-		return pacienteDoencas.stream().filter((PacienteDoenca p) -> p.getId() == id).collect(Collectors.toList());
-	}
-	
+
 	public static Doenca getDoenca(int id) {
 		List<Doenca> ld = doencas.stream().filter((Doenca d) -> d.getId() == id).collect(Collectors.toList());
 		return ld.get(0);
@@ -64,7 +59,7 @@ public final class DadosMemoria {
 	public static List<Remedio> getRemedios() {
 		return remedios;
 	}
-	
+
 	public static Remedio getRemedio(int id) {
 		List<Remedio> lr = remedios.stream().filter((Remedio r) -> r.getId() == id).collect(Collectors.toList());
 		return lr.get(0);
@@ -73,7 +68,7 @@ public final class DadosMemoria {
 	public static List<PacienteHistorico> getPacienteHistorico() {
 		return pacienteHistorico;
 	}
-	
+
 	public static void carregaTabelaPacienteHistorico() {
 		pacienteHistorico.clear();
 		pacienteHistorico.addAll(new PacienteHistoricoRepository().getListPacienteHistorico());

@@ -10,17 +10,6 @@ public class PacienteHistorico {
 	private String horarioTarde;
 	private String horarioNoite;
 
-	public PacienteHistorico(int id, int idPaciente, String remedio, String dia, String horarioManha, String horarioTarde, String horarioNoite) {
-		super();
-		this.id = id;
-		this.idPaciente = idPaciente;
-		this.remedio = remedio;
-		this.dia = dia;
-		this.horarioManha = horarioManha;
-		this.horarioTarde = horarioTarde;
-		this.horarioNoite = horarioNoite;
-	}
-
 	public PacienteHistorico(int id, int idPaciente, String nomePaciente, String remedio, String dia, String horarioManha, String horarioTarde, String horarioNoite) {
 		super();
 		this.id = id;
@@ -64,5 +53,5 @@ public class PacienteHistorico {
 	public String getHorarioNoite() {
 		return horarioNoite;
 	}
-	
+
 }

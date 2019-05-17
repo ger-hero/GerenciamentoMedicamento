@@ -13,6 +13,6 @@ public class DoencaController {
 
 	@RequestMapping("/getDoenca")
 	public List<Doenca> buscarDoenca() {
-		return DadosMemoria.getInstance().getDoencas();
+		return DadosMemoria.getDoencas();
 	}
 }

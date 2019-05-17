@@ -13,6 +13,6 @@ public class RemedioController {
 
 	@RequestMapping("/getRemedios")
 	public List<Remedio> buscarMedicamentos() {
-		return DadosMemoria.getInstance().getRemedios();
+		return DadosMemoria.getRemedios();
 	}
 }

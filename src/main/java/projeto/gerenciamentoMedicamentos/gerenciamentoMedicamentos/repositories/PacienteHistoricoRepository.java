@@ -15,43 +15,11 @@ import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.DadosMemoria;
 import projeto.gerenciamentoMedicamentos.gerenciamentoMedicamentos.model.PacienteHistorico;
 
 public class PacienteHistoricoRepository {
-
+	
 	public List<PacienteHistorico> getListPacienteHistorico() {
 		List<PacienteHistorico> pacienteHistorico = new ArrayList<PacienteHistorico>();
 		ResultSet resultSet;
 		resultSet = this.retornaPacienteHistorico();
-
-		int id;
-		int idPaciente;
-		String remedio;
-		String dia;
-		String horarioManha;
-		String horarioTarde;
-		String horarioNoite;
-
-		try {
-			while (resultSet.next()) {
-				id = resultSet.getInt("id");
-				idPaciente = resultSet.getInt("idpaciente");
-				remedio = resultSet.getString("remedio");
-				dia = resultSet.getString("dia");
-				horarioManha = resultSet.getString("manha");
-				horarioTarde = resultSet.getString("tarde");
-				horarioNoite = resultSet.getString("noite");
-
-				pacienteHistorico.add(
-						new PacienteHistorico(id, idPaciente, remedio, dia, horarioManha, horarioTarde, horarioNoite));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return pacienteHistorico;
-	}
-	
-	public List<PacienteHistorico> getListPacienteHistoricoInner() {
-		List<PacienteHistorico> pacienteHistorico = new ArrayList<PacienteHistorico>();
-		ResultSet resultSet;
-		resultSet = this.retornaPacienteHistoricoInner();
 
 		int id;
 		int idPaciente;
@@ -141,13 +109,8 @@ public class PacienteHistoricoRepository {
 		String sql = "UPDATE pacientehistorico SET " + turno + " = '" + horaFormatada + "' WHERE dia = '" + dia + "'"+ " AND remedio " + " = '" + remedio + "'";
 		return Conexao.getInstance().executeUpdate(sql);
 	}
-
-	private ResultSet retornaPacienteHistorico() {
-		String sql = "SELECT * FROM pacientehistorico ORDER BY id";
-		return Conexao.getInstance().executeQuery(sql);
-	}
 	
-	private ResultSet retornaPacienteHistoricoInner() {
+	private ResultSet retornaPacienteHistorico() {
 		String sql = "SELECT pacientehistorico.*, paciente.nome AS nomepaciente FROM pacientehistorico INNER JOIN paciente ON pacientehistorico.idpaciente = paciente.id oRDER BY id";
 		return Conexao.getInstance().executeQuery(sql);
 	}
