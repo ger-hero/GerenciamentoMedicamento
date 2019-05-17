@@ -67,7 +67,7 @@ function getRegistroPaciente(id) {
     });
 }
 
-function insertRegisto(id, remedio, turno) {
+function insertRegisto(idCarta, id, remedio, turno) {
 	console.log(turno)
     $.ajax({
         type: "GET",
@@ -79,7 +79,8 @@ function insertRegisto(id, remedio, turno) {
         timeout: 600000,
         success: function (data) {	
         	getRegistroPaciente(id);
-            getMedicamentosPaciente(id);
+        	$('.site--interno .medicacoes .carta-medicacao--' + idCarta).hide();
+            //getMedicamentosPaciente(id);
         },
         error: function (e) {
             console.log("ERROR : ", e);
@@ -138,19 +139,21 @@ function formatInformacao(json){
 }	
 
 function formatBotoesMedicamento(json){
+	var idCarta = 0;
 	console.log(json);
 	aplicacaoMedicamentos = $('.medicacoes');
 	$.each(json, function(idx, objMedicacao){
 		//remedio = "'remediotal'";
 		remedio = "'" + objMedicacao.remedio+"'";
 		turno = "'" + objMedicacao.turno+"'";
-		aplicacaoMedicamentos.append('<div class="carta-medicacao">' +
+		aplicacaoMedicamentos.append('<div class="carta-medicacao carta-medicacao--' + idCarta + '">' +
 								   		'<div class="nome">' + objMedicacao.doenca + '</div>' +
 								   		'<div class="remedio">' + objMedicacao.remedio + '</div>' +
 								   		'<div class="botao">' +
-								   			'<a href="javascript:void(0);" class="btn btn-red"  onclick="insertRegisto(' + objMedicacao.idPaciente +","+remedio+","+turno+ ')">Medicar</a>' +
+								   			'<a href="javascript:void(0);" class="btn btn-red"  onclick="insertRegisto(' + idCarta + "," + objMedicacao.idPaciente +","+remedio+","+turno+ ')">Medicar</a>' +
 								   		'</div>' + 
 								   '</div>');
+		idCarta = idCarta + 1;
 	});	
 }
 
