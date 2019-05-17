@@ -29,7 +29,8 @@ public final class DadosMemoria {
 		doencas.addAll(new DoencaRepository().getListDoenca());
 		pacientes.addAll(new PacienteRepository().getListPaciente());
 		remedios.addAll(new RemedioRepository().getListRemedios());
-		pacienteHistorico.addAll(new PacienteHistoricoRepository().getListPacienteHistorico());
+		//pacienteHistorico.addAll(new PacienteHistoricoRepository().getListPacienteHistorico());
+		pacienteHistorico.addAll(new PacienteHistoricoRepository().getListPacienteHistoricoInner());
 	} 
 
 	public static synchronized DadosMemoria getInstance() {

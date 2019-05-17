@@ -47,6 +47,40 @@ public class PacienteHistoricoRepository {
 		}
 		return pacienteHistorico;
 	}
+	
+	public List<PacienteHistorico> getListPacienteHistoricoInner() {
+		List<PacienteHistorico> pacienteHistorico = new ArrayList<PacienteHistorico>();
+		ResultSet resultSet;
+		resultSet = this.retornaPacienteHistoricoInner();
+
+		int id;
+		int idPaciente;
+		String nomePaciente;
+		String remedio;
+		String dia;
+		String horarioManha;
+		String horarioTarde;
+		String horarioNoite;
+
+		try {
+			while (resultSet.next()) {
+				id = resultSet.getInt("id");
+				idPaciente = resultSet.getInt("idpaciente");
+				nomePaciente = resultSet.getString("nomePaciente");
+				remedio = resultSet.getString("remedio");
+				dia = resultSet.getString("dia");
+				horarioManha = resultSet.getString("manha");
+				horarioTarde = resultSet.getString("tarde");
+				horarioNoite = resultSet.getString("noite");
+
+				pacienteHistorico.add(
+						new PacienteHistorico(id, idPaciente,  nomePaciente, remedio, dia, horarioManha, horarioTarde, horarioNoite));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return pacienteHistorico;
+	}
 
 	public void insereRegistroMedicamento(int id, String remedio, String turno) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -110,6 +144,11 @@ public class PacienteHistoricoRepository {
 
 	private ResultSet retornaPacienteHistorico() {
 		String sql = "SELECT * FROM pacientehistorico ORDER BY id";
+		return Conexao.getInstance().executeQuery(sql);
+	}
+	
+	private ResultSet retornaPacienteHistoricoInner() {
+		String sql = "SELECT pacientehistorico.*, paciente.nome AS nomepaciente FROM pacientehistorico INNER JOIN paciente ON pacientehistorico.idpaciente = paciente.id oRDER BY id";
 		return Conexao.getInstance().executeQuery(sql);
 	}
 }

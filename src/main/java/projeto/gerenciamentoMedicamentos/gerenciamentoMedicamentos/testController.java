@@ -30,6 +30,11 @@ public class testController {
 	public String pacientes() {
 		return "html/pacientes";
 	}
+	
+	@RequestMapping("/historico")
+	public String historico() {
+		return "html/historico";
+	}
 
 	@RequestMapping(value = "/paciente/{id}")
 	public String paciente(@PathVariable(value = "id") int id) {

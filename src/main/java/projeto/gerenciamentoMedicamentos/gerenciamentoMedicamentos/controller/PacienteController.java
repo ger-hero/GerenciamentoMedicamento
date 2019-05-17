@@ -129,54 +129,20 @@ public class PacienteController {
 								return true;
 							}
 						}
-
+						else if (turno.equals("tarde")) {
+							if(!p.getHorarioTarde().equals("-")) {
+								return true;
+							}
+						}
+						else if(turno.equals("noite")) {
+							if(!p.getHorarioNoite().equals("-")) {
+								return true;
+							}
+						}
 					}
 				}
 			}
 		}
 		return false;
-
-//		for (PacienteHistorico p : DadosMemoria.getPacienteHistorico()) {
-//			if (id == p.getIdPaciente()) {
-//
-//				if (remedio.equals(p.getRemedio())) {
-//
-//					if (dia.equals(p.getDia())) {
-//
-//						if (turno.equals("manha")) {
-//							// System.out.println("Turno: " + turno.equals("manha"));
-//							// System.out.println("Espaco1: " +p.getHorarioManha().equals("-")+ "
-//							// "+p.getHorarioManha());
-//							if (p.getHorarioManha().equals("-")) {
-//								// System.out.println("Espaco: " +p.getHorarioManha().equals("-"));
-//								return false;
-//							} else {
-//								return true;
-//							}
-//						}
-//
-//						else if (turno.equals("tarde")) {
-//							if (p.getHorarioTarde().equals("-")) {
-//								System.out.println("Tarde: " + p.getHorarioTarde().equals("-"));
-//								return false;
-//							} else {
-//								return true;
-//							}
-//						}
-//
-//						else if (turno.equals("noite")) {
-//							if (p.getHorarioNoite().equals("-")) {
-//								System.out.println("Noite: " + p.getHorarioNoite().equals("-"));
-//								return false;
-//							} else {
-//								return true;
-//							}
-//						}
-//
-//					}
-//				}
-//			}
-//		}
-//		return true;
 	}
 }
