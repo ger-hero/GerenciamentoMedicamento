@@ -109,7 +109,13 @@ body
 						&:After			
 							font-family: "Font Awesome 5 Free"
 							font-weight: 900
-							content: "\f7e6"							
+							content: "\f7e6"
+				& .btn-historico
+					&:hover
+						&:After			
+							font-family: "Font Awesome 5 Free"
+							font-weight: 900
+							content: "\f478"								
 	
 	
 //Helpers
@@ -170,7 +176,7 @@ body
 		
 @include media-breakpoint-down(sm)
 	.header-mobile
-		background-color: #343a40
+		background-color: #29b473
 		margin-bottom: 40px
 		padding: 10px 0px
 		& .links
@@ -186,9 +192,12 @@ body
 			& .navbar-nav
 				margin-top: 5px
 				& .item
-					margin: 0px 15px 0px 15px
+					padding: 10px 15px 10px 15px
 				& a
 					color: white
+					&:hover
+						background-color: #d8ec8a
+						color: black
 
 // Pacientes
 .site--interno
@@ -234,6 +243,14 @@ body
 			& .carta
 				flex: 1 0 100%
 				margin-right: 0px
+
+//Remedios
+.site--interno
+	& #divDaTabela, & #historicoRemedios
+		margin-bottom: 80px
+		& thead
+			background-color: #29b473
+			color: white
 				
 // Perfil paciente
 .site--interno
@@ -341,6 +358,72 @@ body
 			a
 				width: 100%
 
+.footer--web, .footer--mobile
+	background-color: #29b473
+	padding: 15px 0px
+	& .icones
+		display: flex
+		& .icone
+			flex: 1
+			text-align: center
+			& .link--icone
+				color: white
+				position: relative
+				font-size: 20px
+				width: 45px
+				height: 45px
+				line-height: 45px
+				display: inline-block
+				text-align: center
+				perspective: 50em
+				box-sizing: border-box
+				&:hover
+					transition: all 200ms linear
+					&:After
+						border-color: #d8ec8a transparent #d8ec8a transparent
+						transform: rotate(360deg)
+				&:After
+					content: ''
+					position: absolute
+					top: 0
+					bottom: 0
+					left: 0
+					right: 0
+					border: 2px solid #e6e6e6
+					transition: all 0.95s
+					z-index: -1
+					border-radius: 50%
+					&:hover
+						border-color: #c0392b transparent #c0392b transparent
+						transform: rotate(360deg)
+				& .fab
+					font-family: Font Awesome\ 5 Brands
+			& .sass-icon
+				&:hover
+					color: #bf4080
+			& .js-icon
+				&:hover
+					color: #f7e018
+			& .java-icon
+				&:hover
+					color: brown
+			& .python-icon
+				&:hover
+					color: #4949ff
+			& .db-icon
+				&:hover
+					color: #00009a
+			& .springboot-icon
+				&:hover
+					color: #71ff71
+			& .github-icon
+				&:hover
+					color: #eeeeee
+			& .fas-icon
+				&:hover
+					color: #edd764
+	& .icones--margin
+		margin-top: 10px
 // footer		
 .footer-web
 	color: white

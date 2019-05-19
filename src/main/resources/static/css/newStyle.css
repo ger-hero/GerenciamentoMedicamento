@@ -95,6 +95,10 @@ body {
       font-family: "Font Awesome 5 Free";
       font-weight: 900;
       content: ""; }
+    .site--home .menus .hizli-menu .hizli-menu-ic .btn-historico:hover:After {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: ""; }
 
 .icone--agressivo {
   color: red; }
@@ -155,7 +159,7 @@ body {
 
 @media (max-width: 767.98px) {
   .header-mobile {
-    background-color: #343a40;
+    background-color: #29b473;
     margin-bottom: 40px;
     padding: 10px 0px; }
     .header-mobile .links {
@@ -170,9 +174,12 @@ body {
     .header-mobile #menu-collapse .navbar-nav {
       margin-top: 5px; }
       .header-mobile #menu-collapse .navbar-nav .item {
-        margin: 0px 15px 0px 15px; }
+        padding: 10px 15px 10px 15px; }
       .header-mobile #menu-collapse .navbar-nav a {
-        color: white; } }
+        color: white; }
+        .header-mobile #menu-collapse .navbar-nav a:hover {
+          background-color: #d8ec8a;
+          color: black; } }
 .site--interno .search {
   margin: auto;
   margin-bottom: 45px;
@@ -212,6 +219,12 @@ body {
   .site--interno .panel .carta {
     flex: 1 0 100%;
     margin-right: 0px; } }
+.site--interno #divDaTabela, .site--interno #historicoRemedios {
+  margin-bottom: 80px; }
+  .site--interno #divDaTabela thead, .site--interno #historicoRemedios thead {
+    background-color: #29b473;
+    color: white; }
+
 .site--interno .perfil {
   display: flex;
   margin-bottom: 50px; }
@@ -309,6 +322,65 @@ body {
   top: 50px; }
   #exampleModal .modal-dialog .modal-footer a {
     width: 100%; }
+
+.footer--web, .footer--mobile {
+  background-color: #29b473;
+  padding: 15px 0px; }
+  .footer--web .icones, .footer--mobile .icones {
+    display: flex; }
+    .footer--web .icones .icone, .footer--mobile .icones .icone {
+      flex: 1;
+      text-align: center; }
+      .footer--web .icones .icone .link--icone, .footer--mobile .icones .icone .link--icone {
+        color: white;
+        position: relative;
+        font-size: 20px;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        display: inline-block;
+        text-align: center;
+        perspective: 50em;
+        box-sizing: border-box; }
+        .footer--web .icones .icone .link--icone:hover, .footer--mobile .icones .icone .link--icone:hover {
+          transition: all 200ms linear; }
+          .footer--web .icones .icone .link--icone:hover:After, .footer--mobile .icones .icone .link--icone:hover:After {
+            border-color: #d8ec8a transparent #d8ec8a transparent;
+            transform: rotate(360deg); }
+        .footer--web .icones .icone .link--icone:After, .footer--mobile .icones .icone .link--icone:After {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          border: 2px solid #e6e6e6;
+          transition: all 0.95s;
+          z-index: -1;
+          border-radius: 50%; }
+          .footer--web .icones .icone .link--icone:After:hover, .footer--mobile .icones .icone .link--icone:After:hover {
+            border-color: #c0392b transparent #c0392b transparent;
+            transform: rotate(360deg); }
+        .footer--web .icones .icone .link--icone .fab, .footer--mobile .icones .icone .link--icone .fab {
+          font-family: Font Awesome\ 5 Brands; }
+      .footer--web .icones .icone .sass-icon:hover, .footer--mobile .icones .icone .sass-icon:hover {
+        color: #bf4080; }
+      .footer--web .icones .icone .js-icon:hover, .footer--mobile .icones .icone .js-icon:hover {
+        color: #f7e018; }
+      .footer--web .icones .icone .java-icon:hover, .footer--mobile .icones .icone .java-icon:hover {
+        color: brown; }
+      .footer--web .icones .icone .python-icon:hover, .footer--mobile .icones .icone .python-icon:hover {
+        color: #4949ff; }
+      .footer--web .icones .icone .db-icon:hover, .footer--mobile .icones .icone .db-icon:hover {
+        color: #00009a; }
+      .footer--web .icones .icone .springboot-icon:hover, .footer--mobile .icones .icone .springboot-icon:hover {
+        color: #71ff71; }
+      .footer--web .icones .icone .github-icon:hover, .footer--mobile .icones .icone .github-icon:hover {
+        color: #eeeeee; }
+      .footer--web .icones .icone .fas-icon:hover, .footer--mobile .icones .icone .fas-icon:hover {
+        color: #edd764; }
+  .footer--web .icones--margin, .footer--mobile .icones--margin {
+    margin-top: 10px; }
 
 .footer-web {
   color: white;
