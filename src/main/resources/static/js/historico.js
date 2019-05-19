@@ -7,7 +7,25 @@ $(document).ready(function () {
         bordaFixaCabecalho();
         // alteraCorCabecalho();
         fire_ajax_submit();
+        dataTable();
 });
+
+function dataTable(){
+	var delayInMilliseconds = 100; //1 second
+	setTimeout(function() {
+		$('#historicoTable').dataTable( {
+		    "oLanguage": {
+		      "sSearch": "Pesquisar:",
+		      "sInfo": "Registros (_START_ a _END_)",
+		      "sLengthMenu": "Exibir _MENU_ registros",
+		      "oPaginate": {
+		          "sNext": "Próximo",
+		          "sPrevious": "Anterior"
+		        }
+		    }
+	    } );
+	}, delayInMilliseconds);
+}
 
 function bordaFixaCabecalho(){
 	$('.header-web .navbar .nav-historico').removeClass("nav-link");

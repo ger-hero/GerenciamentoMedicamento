@@ -126,10 +126,10 @@ function formatInformacao(json){
 		doencaIcone = $('.doenca-agressividade #icone');
 		if(objP.agressivo){
 			
-			doencaIcone.html('<i class="fas fa-exclamation-circle icone--agressivo"></i>');
+			doencaIcone.html('<i class="fas fa-exclamation-circle icone--agressivo data-toggle="tooltip" data-placement="top" title="Doença Agressiva"></i>');
 		}
 		else{
-			doencaIcone.html('<i class="fas fa-times icone--nagressivo" ></i>');
+			doencaIcone.html('<i class="fas fa-times icone--nagressivo   data-toggle="tooltip" data-placement="top" title="Doença não Agressiva" ></i>');
 		}
 		
 		// Fim painel infos
