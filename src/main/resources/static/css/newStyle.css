@@ -195,6 +195,7 @@ body {
     max-height: 250px;
     margin-bottom: 50px;
     margin-right: 55px;
+    max-width: 220px;
     position: relative; }
     .site--interno .panel .carta .imagem img {
       border-radius: 9px;
@@ -218,12 +219,15 @@ body {
     width: 100%; }
   .site--interno .panel .carta {
     flex: 1 0 100%;
-    margin-right: 0px; } }
+    margin-right: 0px;
+    max-width: none; } }
 .site--interno #divDaTabela, .site--interno #historicoRemedios {
   margin-bottom: 80px; }
   .site--interno #divDaTabela thead, .site--interno #historicoRemedios thead {
     background-color: #29b473;
     color: white; }
+  .site--interno #divDaTabela tbody td, .site--interno #historicoRemedios tbody td {
+    text-align: center; }
 
 .site--interno .perfil {
   display: flex;
